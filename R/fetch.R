@@ -44,16 +44,19 @@ fetch_page_links <- function(x){
 
 #' @export
 #' @importFrom data.table fread
-#' @importFrom httr2 request req_method req_body_form resp_body_string req_headers req_perform
-fetch_sparql_output <- function(query, endpoint){
+#' @importFrom httr2 request req_method req_body_form resp_body_string req_headers req_timeout req_retry req_perform
+fetch_sparql_output <- function(query, endpoint, timeout = 1e6, max_tries = 2L){
     # Build request with Accept header for CSV format
     req <- request(endpoint) |>
         req_method("POST") |>
         req_body_form(query = query) |>
-        req_headers(Accept = "text/csv")
+        req_headers(Accept = "text/csv") |>
+        req_timeout(timeout) |>
+        req_retry(max_tries = max_tries)
     # Get response
     resp <- req_perform(req)
     # Parse CSV content into data frame
     out <- fread(text = resp_body_string(resp), header = TRUE)
     return(out)
 }
+

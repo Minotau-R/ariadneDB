@@ -33,6 +33,12 @@ meta <- list(
         DataProvider = "Kyoto Encyclopedia of Genes and Genomes",
         Location_Prefix = 18788725
     ),
+    MSigDB = data.frame(
+        SourceUrl = "https://zenodo.org/records/",
+        SourceVersion = "2024.1",
+        DataProvider = "Broad Institute",
+        Location_Prefix = 18788725
+    ),
     OTT = data.frame(
         SourceUrl = "https://opentreeoflife.github.io/",
         SourceVersion = "v3.7",

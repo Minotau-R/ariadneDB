@@ -24,17 +24,50 @@ endpoint <- "https://sparql.uniprot.org/"
 query <- "
     PREFIX up: <http://purl.uniprot.org/core/>
     SELECT DISTINCT ?db
-    WHERE
-    {
-        ?db a up:Database.
-    }
+    WHERE { ?db a up:Database. }
 "
 # Get results from SPARQL query
-to.ids <- fetch_sparql_output(query, endpoint)$db
-# Strip PURL prefix from database names
-to.ids <- sub("^.+database/", "", to.ids)
+dbs <- fetch_sparql_output(query, endpoint)$db
+
+queries <- paste0("
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX up: <http://purl.uniprot.org/core/>
+    SELECT ?protein ?db
+    WHERE {
+        ?protein a up:Protein .
+        ?protein rdfs:seeAlso ?db .
+        ?db up:database <", dbs, "> .
+    } LIMIT 10
+")
+
+res <- lapply(
+    queries,
+    function(q){
+        tryCatch({
+            fetch_sparql_output(
+                query = q, endpoint = endpoint, timeout = 10, max_tries = 10
+            )},
+        error = function(e) {
+            return(NULL)
+        })
+    }
+)
+
+names(res) <- sub("^.+database/", "", dbs)
+
+res <- res[lengths(res) != 0L]
+res <- res[vapply(res, nrow, numeric(1L)) != 0L]
+
+exact_matches <- vapply(res, function(x){
+    x[] <- lapply(x, function(col) sub(".+/", "", col))
+    all(x$protein == x$db)
+    }, logical(1L)
+)
+
+res <- res[!exact_matches]
+
 # Remove BioCyc from databases (added earlier)
-to.ids <- setdiff(to.ids, c("BioCyc", "ENZYME"))
+to.ids <- setdiff(names(res), "BioCyc")
 # Expand second combinations
 edge_df <- rbind(edge_df, expand.grid(from = from.ids, to = to.ids))
 # Make nodes data
@@ -49,4 +82,6 @@ node_df$specific[node_df$name %in% c("metacyc_prt", "ecocyc_prt")] <- "BioCyc"
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, paste0(res.name, ".gml"), format = "gml")
+write_graph(
+    graph, paste0(res.name, ".gml"), format = "gml", id = seq_along(graph)
+)

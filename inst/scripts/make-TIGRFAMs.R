@@ -34,4 +34,6 @@ edge_df[c("from", "to")] <- lapply(
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(graph, paste0(res.name, ".gml"), format = "gml")
+write_graph(
+    graph, paste0(res.name, ".gml"), format = "gml", id = seq_along(graph)
+)
