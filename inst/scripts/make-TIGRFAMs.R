@@ -6,22 +6,22 @@ library(stringr)
 res.name <- "TIGRFAMs"
 # Set url for TIGRfams v15.0
 base_url <- "https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/"
-url <- paste0(base_url, "release_15.0/")
+rel_url <- "release_15.0"
 # Extract all links
-links <- fetch_page_links(url)
-file_names <- basename(links)
-# Filter file names
-file_names <- file_names[str_detect(file_names, "^[A-Z]+_[A-Z]+_LINK$")]
+file_urls <- paste0(base_url, rel_url) |>
+    fetch_page_links() |>
+    str_subset(".*_LINK$")
 # Clean and split file names
-file_names <- file_names |>
+file_names <- file_urls |>
+    basename() |>
     str_remove_all("_LINK") |>
     str_split("_", simplify = TRUE)
 # Convert to data.frame
-edge_df <- as.data.frame(file_names)
-colnames(edge_df) <- c("from", "to")
-# Add url paths for resources
-url <- paste0(base_url, "{version}/")
-edge_df <- build_edge_paths(edge_df, res.name, url)
+edge_df <- data.frame(
+    from = file_names[ , 1], to = file_names[ , 2], url = file_urls
+)
+# Replace version with placeholder
+edge_df$url <- str_replace(edge_df$url, fixed(rel_url), "{version}")
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names

@@ -7,17 +7,23 @@ res.name <- "GO"
 # Set url for current GO release
 url <- "https://current.geneontology.org/ontology/external2go/"
 # Extract all links
-links <- fetch_page_links(url)
-file_names <- basename(links)
-# Filter and split file names
-file_names <- file_names[str_detect(file_names, "^[a-z0-9\\-_]+2go$")]
-file_names <- str_split(file_names, "2", simplify = TRUE)
+file_urls <- url |>
+    fetch_page_links() |>
+    str_subset(".*2go$")
+# Clean and split file names
+file_names <- file_urls |>
+    basename() |>
+    str_split("2", simplify = TRUE)
 # Convert to data.frame
-edge_df <- as.data.frame(file_names)
-colnames(edge_df) <- c("from", "to")
-# Add url paths for resources
-url <- "https://release.geneontology.org/{version}/ontology/external2go/"
-edge_df <- build_edge_paths(edge_df, res.name, url)
+edge_df <- data.frame(
+    from = file_names[ , 1], to = file_names[ , 2], url = file_urls
+)
+# Replace version with placeholder
+edge_df$url <- str_replace(
+    edge_df$url,
+    fixed("http://current.geneontology.org"),
+    "https://release.geneontology.org/{version}"
+)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Define ambiguous names

@@ -1,92 +1,7 @@
 
-# Build URL paths to resources
-#' @export
-build_edge_paths <- function(edges, resource, repo){
-    # Prepare function factory
-    .build_path <- switch(
-        resource,
-        BugSigDB = function(from, to, repo){
-            paste0(repo, "files/bugsigdb_signatures_mixed_", to, ".gmt")
-        },
-        ChocoPhlAn = function(from, to, repo){
-            paste0(repo, "files/map_", from, "_", to, ".txt.gz")
-        },
-        GM = function(from, to, repo){
-            if( from == "gmm" ){
-                file_name <- "GMMs.v1.07.txt"
-            }else if( from == "gbm" ){
-                file_name <- "GBMs.v1.0.txt"
-            }
-            paste0(repo, file_name)
-        },
-        GO = function(from, to, repo){
-            paste0(repo, from, "2", to)
-        },
-        TIGRFAMs = function(from, to, repo){
-            paste0(repo, from, "_", to, "_LINK")
-        },
-        WoL = function(from, to, repo){
-            # Account for exceptions
-            if( from == "uniref90" ){
-                prefix <- ifelse(to == "all", "go/uniref", "uniref/idmaps")
-                file_name <- paste0(prefix, "/", to, ".map.xz")
-            }else{
-                prefix <- ifelse(from == "BioCyc", "protein", from)
-                file_name <- paste0("metacyc/", prefix, "-to-", to, ".map")
-            }
-            paste0(repo, "function/", file_name)
-        },
-        function(from, to, repo) NA
-    )
-    # Build resource paths
-    paths <- mapply(
-        FUN = .build_path,
-        from = edges$from,
-        to = edges$to,
-        MoreArgs = list(repo = repo),
-        USE.NAMES = FALSE
-    )
-    # Add urls to edges data
-    edges$url <- as.vector(paths)
-    return(edges)
-}
-
-
-# Build URL paths to feature names
-#' @export
-build_node_paths <- function(nodes, resource, repo){
-    # Prepare function factory
-    .build_path <- switch(
-        resource,
-        BugSigDB = function(name, spec, repo){
-            paste0(repo, "files/bugsigdb_signatures_mixed_ncbi.gmt")
-        },
-        GM = function(name, spec, repo){
-            file_name <- switch(
-                name, gmm = "GMMs.v1.07.names", gbm = "GBMs.v1.0.names", NA
-            )
-            paste0(repo, file_name)
-        },
-        function(from, to, repo) NA
-    )
-    # Build resource paths
-    paths <- mapply(
-        FUN = .build_path,
-        name = nodes$name,
-        spec = nodes$specific,
-        MoreArgs = list(repo = repo),
-        USE.NAMES = FALSE
-    )
-    # Add urls to nodes data
-    nodes$url <- as.vector(paths)
-    return(nodes)
-}
-
-
 #' @export
 #' @importFrom jsonlite fromJSON
-#' @importFrom httr2 request req_timeout req_perform resp_check_status
-#'   resp_body_string
+#' @importFrom httr2 request req_timeout req_perform resp_check_status resp_body_string
 fetch_zenodo_resource <- function(record_id) {
     # Build Zenodo URL
     url <- paste0("https://zenodo.org/api/records/", record_id)
@@ -107,23 +22,29 @@ fetch_zenodo_resource <- function(record_id) {
 
 
 #' @export
-#' @importFrom rvest read_html html_nodes html_attr
-fetch_page_links <- function(url){
+#' @importFrom xml2 url_absolute
+#' @importFrom rvest read_html html_elements html_attr
+fetch_page_links <- function(x){
     
-    page <- read_html(url)
+    links <- lapply(x, function(url){
+        
+        page <- read_html(url)
     
-    links <- page |>
-        html_nodes("a") |>
-        html_attr("href")
+        links <- page |>
+            html_elements("a") |>
+            html_attr("href")
+        
+        links <- url_absolute(links, url)
+    })
     
+    links <- unlist(links, use.names = FALSE)
     return(links)
 }
 
 
 #' @export
 #' @importFrom data.table fread
-#' @importFrom httr2 request req_method req_body_form resp_body_string
-#'   req_headers req_perform
+#' @importFrom httr2 request req_method req_body_form resp_body_string req_headers req_perform
 fetch_sparql_output <- function(query, endpoint){
     # Build request with Accept header for CSV format
     req <- request(endpoint) |>

@@ -7,18 +7,19 @@ res.name <- "ChocoPhlAn"
 # Set url for ChocoPhlAn v201901b
 url <- "https://zenodo.org/records/17100034/"
 # Fetch file names from Zenodo
-file_names <- fetch_zenodo_resource(basename(url))
+file_names <- basename(url) |>
+    fetch_zenodo_resource() |>
+    str_subset("name\\.txt", negate = TRUE)
 # Clean and split file names
-file_names <- str_remove_all(file_names, "map_|\\.txt.*")
-file_names <- str_split(file_names, "_", simplify = TRUE)
-# Convert to data.frame
-edge_df <- as.data.frame(file_names)
-colnames(edge_df) <- c("from", "to")
-# Filter name mappings
-edge_df <- edge_df[!(edge_df$from == "name" | edge_df$to == "name"), ]
+features <- file_names |>
+    str_remove_all("map_|\\.txt.*") |>
+    str_split("_", simplify = TRUE)
 # Add url paths for resources
-url <- paste0(dirname(url), "/{version}/")
-edge_df <- build_edge_paths(edge_df, res.name, url)
+file_urls <- paste0(dirname(url), "/{version}/files/", file_names)
+# Convert to data.frame
+edge_df <- data.frame(
+    from = features[ , 1], to = features[ , 2], url = file_urls
+)
 # Make nodes data
 node_df <- edge2node(edge_df)
 # Use generic names in edges data

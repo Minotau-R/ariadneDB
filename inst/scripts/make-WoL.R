@@ -6,35 +6,46 @@ library(stringr)
 res.name <- "WoL"
 # Set url for WoL v2
 base_url <- "https://ftp.microbio.me/pub/"
-url <- paste0(base_url, "wol2/function/")
+# Set url for function dir
+fun_url <- "wol2/function/"
 # List key dirs
 dirs <- c("uniref/idmaps/", "go/uniref/")
-# Initialise file names
-file_names <- c()
-# Search subdirectories
-for( d in dirs ){
-    # Fetch subdirectory links
-    dir_url <- paste0(url, d)
-    links <- fetch_page_links(dir_url)
-    # Filter files ending with map.xz
-    file_names <- c(file_names, links[str_detect(links, "map\\.xz$")])
-}
+# Search uniref mappings
+file_urls <- paste0(base_url, fun_url, dirs) |>
+    fetch_page_links() |>
+    str_subset("map\\.xz$")
+# Derive file names from urls
+file_names <- str_extract(file_urls, "(?<=\\/)[^\\/]+(?=\\.map\\.xz$)")
 # Initialise edges data
-edge_df <- data.frame(from = "uniref90", to = file_names)
-# Fetch metacyc directory links
-links <- fetch_page_links(paste0(url, "metacyc/"))
-# Filter files ending with map.xz
-file_names <- links[str_detect(links, "map$")]
+edge_df <- data.frame(from = "uniref90", to = file_names, url = file_urls)
+# List key dirs
+dirs <- c("uniref/", "metacyc/")
+# Fetch orf and metacyc directory links
+file_urls <- paste0(base_url, fun_url, dirs) |>
+    fetch_page_links() |>
+    str_subset("\\.map(\\.xz)?$")
 # Split features for metacyc bindings
-file_names <- str_split(file_names, "-to-", simplify = TRUE)
-# Add complex link type
-file_names <- cbind(file_names)
-# Add column names
-colnames(file_names) <- c("from", "to")
+file_names <- file_urls |>
+    str_extract("(?<=\\/)[^\\/]+(?=\\.map.*)") |>
+    str_split("-to-", simplify = TRUE)
 # Combine uniref and metacyc bindings
-edge_df <- rbind(edge_df, file_names)
-# Clean feature names
-edge_df$to <- str_remove_all(edge_df$to, "\\.map(\\.xz)?$")
+edge_df <- rbind(
+    edge_df,
+    data.frame(from = file_names[ , 1], to = file_names[ , 2], url = file_urls)
+)
+# Set url for taxonomy dir
+tax_url <- "wol2/taxonomy/"
+# List key dirs
+dirs <- c("ncbi/", "gg2/")
+# Search wol mappings
+file_urls <- paste0(base_url, tax_url, dirs) |>
+    fetch_page_links() |>
+    str_subset("(taxid|wol2gg)")
+# Combine uniref, metacyc and wol bindings
+edge_df <- rbind(
+    edge_df,
+    data.frame(from = "wol", to = c("taxid", "greengenes"), url = file_urls)
+)
 # Remove unnecessary pairs
 to_remove <- c(
     "Gene_Name", "component", "function", "process", "regulation", "regulator",
@@ -42,10 +53,10 @@ to_remove <- c(
     "reaction_layout", "taxonomic_range"
 )
 edge_df <- edge_df[!edge_df$to %in% to_remove, ]
-# Add url paths for resources
-url <- paste0(base_url, "{version}/")
-edge_df <- build_edge_paths(edge_df, res.name, url)
+# Replace version with placeholder
+edge_df$url <- str_replace(edge_df$url, fixed("wol2"), "{version}")
 # Avoid multiple specifics for some nodes
+edge_df$from[edge_df$from == "orf"] <- "wol"
 edge_df$to[edge_df$to == "BioCyc"] <- "protein"
 edge_df$to[edge_df$to == "reaction_list"] <- "reaction"
 # Make nodes data
