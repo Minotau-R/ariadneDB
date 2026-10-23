@@ -1,5 +1,31 @@
+#' Translate feature names to the ariadne nomenclature
+#'
+#' @name translate
+#' 
+#' @description
+#' \code{edge2node} \code{.featureDictionary}
+#' 
+#' @param edges \code{Character list}. A named list of resource versions to
+#' load. Latest versions are used if not specified. (Default: \code{NULL})
+#' 
+#' @returns An igraph object with the ariadne resource graph.
+#' 
+#' @examples
+#' # Prepare example edges table
+#' edge_df <- data.frame(
+#'     from = c("ncbi", "GO"),
+#'     to = c("BugSigDB", "FooDB")
+#' )
+#' 
+#' # Derive nodes table from edges table
+#' node_df <- edge2node(edge_df)
+#' 
+#' # View nodes table
+#' node_df
+NULL
 
-feature.dictionary <- list(
+#' @rdname translate
+.featureDictionary <- list(
     agora = "Agora",
     agr = "AGR",
     allergome = "Allergome",
@@ -158,13 +184,31 @@ feature.dictionary <- list(
     zfin = "ZFIN"
 )
 
+
 #' @export
-get_unique_features <- function(df){
-    unique(c(as.matrix(df)))
+#' @rdname translate
+edge2node <- function(edges){
+    # Get unique features
+    specific <- get_unique_features(edges[ , c("from", "to")])
+    # Translate features
+    generic <- translate_features(specific, .featureDictionary)
+    # Build node
+    nodes <- data.frame(name = generic, specific)
+    return(nodes)
 }
 
 
-#' @export
+# Define function to extract unique feature names from a data.frame
+get_unique_features <- function(df){
+    out <- df |>
+        as.matrix() |>
+        c() |>
+        unique()
+    return(out)
+}
+
+
+# Define function to convert database-specific to generic feature name
 translate_features <- function(x, dict){
     x <- vapply(x, function(element) {
         matches <- vapply(dict, function(item) element %in% item, logical(1))
@@ -176,18 +220,7 @@ translate_features <- function(x, dict){
             element
         }
     }, FUN.VALUE = character(1))
-    
+    # Remove names from feature list
     x <- unname(x)
     return(x)
-}
-
-#' @export
-edge2node <- function(edges){
-    # Get unique features
-    specific <- get_unique_features(edges[ , c("from", "to")])
-    # Translate features
-    generic <- translate_features(specific, feature.dictionary)
-    # Build node
-    nodes <- data.frame(name = generic, specific)
-    return(nodes)
 }

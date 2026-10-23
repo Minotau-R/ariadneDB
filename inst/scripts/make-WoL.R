@@ -67,10 +67,14 @@ node_df$name[node_df$specific == "protein"] <- "metacyc_prt"
 node_df$name[node_df$specific == "reaction"] <- "metacyc_rxn"
 node_df$name[node_df$specific == "pathway"] <- "metacyc_path"
 node_df$name[node_df$specific == "super_pathway"] <- "metacyc_spath"
-# Add url paths for feature names
-node_df <- build_node_paths(node_df, res.name, url)
-node_df$url[node_df$name == "metacyc_spath"] <- NA
-node_df$url[endsWith(node_df$url, "NA")] <- NA
+# Get url paths for feature names
+file_urls <- paste0(base_url, fun_url, "metacyc/") |>
+    fetch_page_links() |>
+    str_subset("\\_name\\.txt$")
+# Derive feature names
+file_names <- str_extract(file_urls, "(?<=/)[^/]+(?=_name)")
+# Map urls to nodes data
+node_df$url <- file_urls[match(node_df$specific, file_names)]
 # Use generic names in edges data
 edge_df[c("from", "to")] <- lapply(
     edge_df[c("from", "to")],
@@ -79,6 +83,4 @@ edge_df[c("from", "to")] <- lapply(
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(
-    graph, paste0(res.name, ".gml"), format = "gml", id = seq_along(graph)
-)
+write_graph(graph, paste0(res.name, ".gml"), format = "gml", id = seq_along(graph))

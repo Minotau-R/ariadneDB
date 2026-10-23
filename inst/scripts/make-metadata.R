@@ -15,6 +15,12 @@ meta <- list(
         DataProvider = "bioBakery",
         Location_Prefix = 18788725
     ),
+    enviPath = data.frame(
+        SourceUrl = "https://envipath.org/",
+        SourceVersion = "v2026_10",
+        DataProvider = "enviPath",
+        Location_Prefix = 18788725
+    ),
     GM = data.frame(
       SourceUrl = "https://github.com/",
       SourceVersion = "v1",
@@ -46,7 +52,7 @@ meta <- list(
         Location_Prefix = 18788725
     ),
     Rhea = data.frame(
-        SourceUrl = "https://www.rhea-db.org",
+        SourceUrl = "https://www.rhea-db.org/",
         SourceVersion = "v140",
         DataProvider = "Swiss Institute of Bioinformatics",
         Location_Prefix = 18788725
