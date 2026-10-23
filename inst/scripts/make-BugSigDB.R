@@ -23,6 +23,9 @@ edge_df <- data.frame(
 )
 # Make nodes data
 node_df <- edge2node(edge_df)
+# Add node urls
+node_df$url <- NA
+node_df$url[node_df$name == "bugsig"] <- edge_df$url[edge_df$to == "taxid"]
 # Use generic names in edges data
 edge_df[c("from", "to")] <- lapply(
     edge_df[c("from", "to")],

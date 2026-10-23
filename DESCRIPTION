@@ -1,5 +1,5 @@
 Package: ariadneDB
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: 
     c(person(given = "Giulio", family = "Benedetti", role = c("aut", "cre"),
           email = "giulio.benedetti@utu.fi",
@@ -10,18 +10,22 @@ Authors@R:
     person(given = "Leo", family = "Lahti", role = c("aut"),
           email = "leo.lahti@iki.fi",
           comment = c(ORCID = "0000-0001-5537-637X")))
-Title: ariadneDB: the harmonised graph of microbiome-related databases
+Title: ariadneDB: curated graph of microbiome-related databases
 Description:
-    ariadneDB 
+    ariadneDB is the data package behind ariadne, providing the resource graph
+    database that harmonises the links between several public biological
+    databases with a focus microbiome-related resources. The harmonised resource
+    graph is generated with a reproducible pipeline and stored in Zenodo. The
+    ariadne and ariadnePy libraries can be used to explore and cross the ariadne
+    graph in R and Python, respectively.
 biocViews:
     AnnotationHubSoftware, DataImport, Metabolomics, Metagenomics, Microbiome,
     Annotation, Pathways
 License: Artistic-2.0
 Encoding: UTF-8
 Depends:
-    R (>= 4.1)
+    R (>= 4.6)
 Imports:
-    AnnotationHub,
     data.table,
     jsonlite,
     httr2,
@@ -30,15 +34,18 @@ Imports:
 Suggests:
     BiocStyle,
     dplyr,
+    enviPathR,
     igraph,
     KEGGREST,
+    knitr,
     remotes,
     rmarkdown,
     stats,
     stringr,
     testthat (>= 3.0.0)
-URL: https://github.com/Minotau-R/ariadne.db
-BugReports: https://github.com/Minotau-R/ariadne.db/issues
+URL: https://github.com/Minotau-R/ariadneDB
+BugReports: https://github.com/Minotau-R/ariadneDB/issues
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Config/roxygen2/version: 8.0.0
+Config/testthat/edition: 3
