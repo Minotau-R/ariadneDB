@@ -1,19 +1,20 @@
 
 library(igraph)
+library(stringr)
 
 # Set resource name
 res.name <- "UniProt"
 # Expand first combinations
 edge_df <- expand.grid(
     from = c("uniref50", "uniref90"),
-    to = c("taxname", "taxid", "uniprotkb"),
+    to = c("taxid", "uniprotkb"),
     stringsAsFactors = FALSE
 )
 # Set from ids
 from.ids <- c("uniprotkb", "uniref50", "uniref90")
 # Define additional pairs
 edge_df <- rbind(
-    edge_df, data.frame(from = "taxname", to = "taxid"),
+    edge_df,
     expand.grid(
         from = from.ids, to = c("enzyme", "rhea", "metacyc_prt", "ecocyc_prt")
     )
@@ -53,7 +54,7 @@ res <- lapply(
     }
 )
 
-names(res) <- sub("^.+database/", "", dbs)
+names(res) <- str_remove(dbs, "^.+database/")
 
 res <- res[lengths(res) != 0L]
 res <- res[vapply(res, nrow, numeric(1L)) != 0L]
@@ -82,6 +83,4 @@ node_df$specific[node_df$name %in% c("metacyc_prt", "ecocyc_prt")] <- "BioCyc"
 # Combine to graph
 graph <- graph_from_data_frame(edge_df, vertices = node_df, directed = TRUE)
 # Create resource
-write_graph(
-    graph, paste0(res.name, ".gml"), format = "gml", id = seq_along(graph)
-)
+write_graph(graph, paste0(res.name, ".gml"), format = "gml")
