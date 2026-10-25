@@ -58,6 +58,7 @@ edge_df$url <- str_replace(edge_df$url, fixed("wol2"), "{version}")
 # Avoid multiple specifics for some nodes
 edge_df$from[edge_df$from == "orf"] <- "wol"
 edge_df$to[edge_df$to == "BioCyc"] <- "protein"
+edge_df$to[edge_df$to == "uniref"] <- "uniref90"
 edge_df$to[edge_df$to == "reaction_list"] <- "reaction"
 # Make nodes data
 node_df <- edge2node(edge_df)
