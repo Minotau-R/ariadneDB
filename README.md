@@ -1,5 +1,5 @@
 
-# ariadneDB: the ariadne resource graph database
+# ariadneDB: the ariadne resource graph database <img src="https://raw.githubusercontent.com/Minotau-R/ariadne/devel/inst/man/figures/ariadne_logo.png" align="right" width="120" />
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18788725.svg)](https://doi.org/10.5281/zenodo.18788725)
 
