@@ -1,0 +1,7 @@
+destination: docs
+reference:
+  - title: ariadne app
+    contents:
+      - ariadneDB
+      - fetch
+      - translate

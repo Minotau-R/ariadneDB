@@ -32,9 +32,12 @@ Imports:
     rvest,
     xml2
 Suggests:
+    ariadne,
     BiocStyle,
     dplyr,
+    DT,
     enviPathR,
+    ggplot2,
     igraph,
     KEGGREST,
     knitr,
@@ -47,5 +50,5 @@ URL: https://github.com/Minotau-R/ariadneDB
 BugReports: https://github.com/Minotau-R/ariadneDB/issues
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.1
 Config/testthat/edition: 3

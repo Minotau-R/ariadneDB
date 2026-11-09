@@ -5,17 +5,21 @@ export(fetch_page_links)
 export(fetch_sparql_output)
 export(fetch_zenodo_resource)
 importFrom(data.table,fread)
-importFrom(httr2,req_body_form)
-importFrom(httr2,req_headers)
-importFrom(httr2,req_method)
-importFrom(httr2,req_perform)
-importFrom(httr2,req_retry)
-importFrom(httr2,req_timeout)
-importFrom(httr2,request)
-importFrom(httr2,resp_body_string)
-importFrom(httr2,resp_check_status)
+importFrom(httr2,
+  req_body_form,
+  req_headers,
+  req_method,
+  req_perform,
+  req_retry,
+  req_timeout,
+  request,
+  resp_body_string,
+  resp_check_status
+)
 importFrom(jsonlite,fromJSON)
-importFrom(rvest,html_attr)
-importFrom(rvest,html_elements)
-importFrom(rvest,read_html)
+importFrom(rvest,
+  html_attr,
+  html_elements,
+  read_html
+)
 importFrom(xml2,url_absolute)
