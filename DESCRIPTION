@@ -46,6 +46,8 @@ Suggests:
     stats,
     stringr,
     testthat (>= 3.0.0)
+Remotes:
+    github::Minotau-R/ariadne
 URL: https://github.com/Minotau-R/ariadneDB
 BugReports: https://github.com/Minotau-R/ariadneDB/issues
 Roxygen: list(markdown = TRUE)
