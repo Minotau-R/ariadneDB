@@ -2,6 +2,11 @@
 # ariadneDB: the ariadne resource graph database <img src="https://raw.githubusercontent.com/Minotau-R/ariadne/devel/man/figures/ariadne_logo.png" align="right" width="120" />
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18788725.svg)](https://doi.org/10.5281/zenodo.18788725)
+[![issues](https://img.shields.io/github/issues/Minotau-R/ariadneDB)](https://github.com/Minotau-R/ariadneDB/issues)
+[![pulls](https://img.shields.io/github/issues-pr/Minotau-R/ariadneDB)](https://github.com/Minotau-R/ariadneDB/pulls)
+[![R-CMD-check](https://github.com/Minotau-R/ariadneDB/workflows/build/badge.svg)](https://github.com/Minotau-R/ariadneDB/actions)
+[![codecov](https://codecov.io/gh/Minotau-R/ariadneDB/graph/badge.svg?token=mGrzAP0atR)](https://codecov.io/gh/Minotau-R/ariadneDB)
+[![CodeFactor](https://www.codefactor.io/repository/github/minotau-r/ariadnedb/badge)](https://www.codefactor.io/repository/github/minotau-r/ariadnedb)
 
 ariadneDB hosts a harmonised resource graph with feature mappings from various
 biological databases, powering the R package
