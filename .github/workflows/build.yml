@@ -3,8 +3,6 @@ on:
   push:
     branches:
     - devel
-env:
-  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 jobs:
   rworkflows:
     permissions: write-all
@@ -39,6 +37,7 @@ jobs:
         run_vignettes: ${{ true }}
         has_testthat: ${{ true }}
         run_covr: ${{ true }}
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run_pkgdown: ${{ true }}
         has_runit: ${{ false }}
         has_latex: ${{ false }}
