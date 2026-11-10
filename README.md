@@ -10,10 +10,10 @@
 
 ariadneDB hosts a harmonised resource graph with feature mappings from various
 biological databases, powering the R package
-[ariadne](https://github.com/Minotau-R/ariadne) and its Python extension
+[ariadne](https://codeberg.org/Minotau-R/ariadne) and its Python extension
 [ariadnePy](https://github.com/Minotau-R/ariadnePy). A walkthrough on the
 available resources can be found in
-[this vignette](https://minotau-r.github.io/ariadne/articles/resources.html).
+[this vignette](https://minotau-r.github.io/ariadneDB/articles/ariadneDB.html).
 
 ## Resources
 

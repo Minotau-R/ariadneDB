@@ -97,11 +97,6 @@ p>.fas {
   color: var(--primary-orange);
 }
 
-/* Images */
-img {
-  width: auto;
-}
-
 /* Additional refinements for a modern look */
 body {
   background-color: var(--light-gray);
