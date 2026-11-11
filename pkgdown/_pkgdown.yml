@@ -1,7 +1,10 @@
 url: https://minotau-r.github.io/ariadneDB
 destination: docs
+
 template:
   bootstrap: 5
+  css: extra.css
+
 reference:
   - title: ariadne database
     contents:

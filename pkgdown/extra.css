@@ -12,51 +12,55 @@ Developed and maintained by Giulio Benedetti (@RiboRings)
 }
 
 /* Header and Navigation */
-.headroom {
+.headroom, 
+.navbar {
+  background-color: var(--dark-red) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-brand {
+  color: var(--white) !important;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus {
+  color: var(--secondary-orange) !important;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .show > .nav-link {
+  color: var(--secondary-orange) !important;
   background-color: var(--dark-red);
 }
 
-.navbar-default .navbar-link {
+/* Dropdown menus */
+.navbar .dropdown-menu {
+  background-color: var(--dark-red);
+  border: none;
+}
+
+.navbar .dropdown-menu .dropdown-item {
   color: var(--white);
 }
 
-.navbar-default .navbar-link:hover {
-  color: var(--secondary-orange);
-}
-
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
-  color: var(--secondary-orange);
-  background-color: var(--dark-red);
-}
-
-.navbar-default .navbar-nav>.open>a,
-.navbar-default .navbar-nav>.open>a:hover,
-.navbar-default .navbar-nav>.open>a:focus {
-  color: var(--secondary-orange);
-  background-color: var(--dark-red);
-}
-
-.dropdown-menu>.active>a,
-.dropdown-menu>.active>a:hover,
-.dropdown-menu>.active>a:focus {
-  color: var(--secondary-orange);
-  background-color: var(--dark-red);
-}
-
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus {
-  color: var(--secondary-orange);
-}
-
-.dropdown-menu>li>a:hover {
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
   color: var(--white);
   background-color: var(--primary-orange);
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: var(--white);
+/* Reference & content links */
+main a, 
+.contents a {
+  color: #0d6efd; 
+  text-decoration: underline;
+}
+
+main a:hover, 
+.contents a:hover {
+  color: var(--primary-orange);
 }
 
 /* Headings */
@@ -101,22 +105,4 @@ p>.fas {
 body {
   background-color: var(--light-gray);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.navbar-default {
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-menu {
-  background-color: var(--dark-red);
-  border: none;
-}
-
-.dropdown-menu>li>a {
-  color: var(--white);
-}
-
-.dropdown-menu>li>a:hover {
-  background-color: var(--primary-orange);
 }
