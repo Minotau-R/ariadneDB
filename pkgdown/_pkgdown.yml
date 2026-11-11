@@ -1,6 +1,9 @@
+url: https://minotau-r.github.io/ariadneDB
 destination: docs
+template:
+  bootstrap: 5
 reference:
-  - title: ariadne app
+  - title: ariadne database
     contents:
       - ariadneDB
       - fetch
