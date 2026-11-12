@@ -3,7 +3,10 @@ destination: docs
 
 template:
   bootstrap: 5
+  light-switch: true
   css: extra.css
+  bslib:
+    navbar-bg: "#8B0000"
 
 reference:
   - title: ariadne database
