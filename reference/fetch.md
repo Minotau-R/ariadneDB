@@ -72,6 +72,7 @@ fetch_zenodo_resource(record_id)
 #>  [1] "ChocoPhlAn.gml" "BugSigDB.gml"   "UniProt.gml"    "WoL.gml"       
 #>  [5] "Rhea.gml"       "KEGG.gml"       "TIGRFAMs.gml"   "GO.gml"        
 #>  [9] "enviPath.gml"   "OTT.gml"        "GM.gml"         "MSigDB.gml"    
+#> [13] "metadata.csv"  
 
 # Set url to online directory
 go_url <- "https://current.geneontology.org/ontology/external2go/"

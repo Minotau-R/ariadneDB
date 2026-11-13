@@ -52,10 +52,10 @@ igraph object.
 
 \
 `# Import resource graph`\
-`graph`` ``<-`` `[`ariadne`](https://rdrr.io/pkg/ariadne/man/ariadne.html)`(``)`\
+`graph`` ``<-`` `[`ariadne`](https://minotau-r.github.io/ariadne/reference/ariadne.html)`(``)`\
 \
 `# Plot resource graph`\
-[`plotPath`](https://rdrr.io/pkg/ariadne/man/plotPath.html)`(``graph``)`\
+[`plotPath`](https://minotau-r.github.io/ariadne/reference/plotPath.html)`(``graph``)`\
 `#> Using ``"stress"`` as default layout`
 
 ![](ariadneDB_files/figure-html/fetch-1.png)
@@ -66,7 +66,7 @@ database.
 
 \
 `# List available resource versions`\
-`versions`` ``<-`` `[`listResourceVersions`](https://rdrr.io/pkg/ariadne/man/listResourceVersions.html)`(``)`\
+`versions`` ``<-`` `[`listResourceVersions`](https://minotau-r.github.io/ariadne/reference/listResourceVersions.html)`(``)`\
 \
 `# View versions`\
 [`datatable`](https://rdrr.io/pkg/DT/man/datatable.html)`(``versions``)`
@@ -106,7 +106,7 @@ argument `res.name`.
 `# Create resource graphs`\
 `plots`` ``<-`` `[`lapply`](https://rdrr.io/r/base/lapply.html)`(`\
 `    ``df``$``source``, ``function``(``x``)`` ``{`\
-`        `[`plotPath`](https://rdrr.io/pkg/ariadne/man/plotPath.html)`(``graph``, res.name ``=`` ``x``, layout ``=`` ``"stress"``, focus ``=`` ``TRUE``)`` ``+`\
+`        `[`plotPath`](https://minotau-r.github.io/ariadne/reference/plotPath.html)`(``graph``, res.name ``=`` ``x``, layout ``=`` ``"stress"``, focus ``=`` ``TRUE``)`` ``+`\
 `            `[`ggtitle`](https://ggplot2.tidyverse.org/reference/labs.html)`(``x``)`\
 `    ``}`\
 `)`\
@@ -223,7 +223,7 @@ R session information:
     #>  [53] tidyselect_1.2.1            abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5              
     #>  [57] codetools_0.2-20            curl_8.1.0                  lattice_0.23-1              tibble_3.3.1               
     #>  [61] Biobase_2.73.2              withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                   
-    #>  [65] evaluate_1.0.5              desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.2        
+    #>  [65] evaluate_1.0.5              desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3        
     #>  [69] Biostrings_2.81.9           pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3             
     #>  [73] MatrixGenerics_1.25.0       stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10          
     #>  [77] hms_1.1.4                   scales_1.4.0                rncl_0.8.10                 glue_1.8.1                 
@@ -232,7 +232,7 @@ R session information:
     #>  [89] grid_4.6.1                  ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2            
     #>  [93] nlme_3.1-171                ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5          
     #>  [97] S4Arrays_1.13.2             viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6               
-    #> [101] sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.12        SparseArray_1.13.4         
+    #> [101] sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.4         
     #> [105] ggrepel_0.9.8               htmlwidgets_1.6.4           farver_2.1.2                memoise_2.0.1              
     #> [109] htmltools_0.5.9             pkgdown_2.2.1               lifecycle_1.0.5             httr_1.4.9                 
     #> [113] bit64_4.8.6                 MASS_7.3-66

@@ -21,7 +21,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ariadneDB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@ Benedetti</h4>
 Turku<br><a class="author_email" href="mailto:#"></a><a href="mailto:giulio.benedetti@utu.fi" class="email">giulio.benedetti@utu.fi</a>
       </address>
                   
-            <h4 data-toc-skip class="date">12 November 2026</h4>
+            <h4 data-toc-skip class="date">13 November 2026</h4>
       
       <small class="dont-index">Source: <a href="https://codeberg.org/Minotau-R/ariadneDB/src/branch/devel/vignettes/ariadneDB.Rmd" class="external-link"><code>vignettes/ariadneDB.Rmd</code></a></small>
       <div class="d-none name"><code>ariadneDB.Rmd</code></div>
@@ -210,10 +210,10 @@ retrieved from the database release on <a href="https://zenodo.org/records/18788
 a single igraph object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import resource graph</span></span>
-<span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ariadne/man/ariadne.html" class="external-link">ariadne</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://minotau-r.github.io/ariadne/reference/ariadne.html" class="external-link">ariadne</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Plot resource graph</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/ariadne/man/plotPath.html" class="external-link">plotPath</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://minotau-r.github.io/ariadne/reference/plotPath.html" class="external-link">plotPath</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using <span style="color: #0000BB;">"stress"</span> as default layout</span></span></code></pre></div>
 <p><img src="ariadneDB_files/figure-html/fetch-1.png" class="r-plt" alt="" width="700"></p>
 <p>Some resources have multiple versions, which can be selected through
@@ -221,7 +221,7 @@ the argument <code>versions</code>. This defaults to the latest version
 found in the database.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># List available resource versions</span></span>
-<span><span class="va">versions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ariadne/man/listResourceVersions.html" class="external-link">listResourceVersions</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">versions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://minotau-r.github.io/ariadne/reference/listResourceVersions.html" class="external-link">listResourceVersions</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># View versions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">datatable</a></span><span class="op">(</span><span class="va">versions</span><span class="op">)</span></span></code></pre></div>
@@ -257,7 +257,7 @@ argument <code>res.name</code>.</p>
 <code class="sourceCode R"><span><span class="co"># Create resource graphs</span></span>
 <span><span class="va">plots</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
 <span>    <span class="va">df</span><span class="op">$</span><span class="va">source</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/ariadne/man/plotPath.html" class="external-link">plotPath</a></span><span class="op">(</span><span class="va">graph</span>, res.name <span class="op">=</span> <span class="va">x</span>, layout <span class="op">=</span> <span class="st">"stress"</span>, focus <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>        <span class="fu"><a href="https://minotau-r.github.io/ariadne/reference/plotPath.html" class="external-link">plotPath</a></span><span class="op">(</span><span class="va">graph</span>, res.name <span class="op">=</span> <span class="va">x</span>, layout <span class="op">=</span> <span class="st">"stress"</span>, focus <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
 <span><span class="op">)</span></span>
@@ -350,7 +350,7 @@ organised graph to benefit from its emerging properties.</p>
 <span><span class="co">#&gt;  [53] tidyselect_1.2.1            abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5              </span></span>
 <span><span class="co">#&gt;  [57] codetools_0.2-20            curl_8.1.0                  lattice_0.23-1              tibble_3.3.1               </span></span>
 <span><span class="co">#&gt;  [61] Biobase_2.73.2              withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                   </span></span>
-<span><span class="co">#&gt;  [65] evaluate_1.0.5              desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.2        </span></span>
+<span><span class="co">#&gt;  [65] evaluate_1.0.5              desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3        </span></span>
 <span><span class="co">#&gt;  [69] Biostrings_2.81.9           pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3             </span></span>
 <span><span class="co">#&gt;  [73] MatrixGenerics_1.25.0       stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10          </span></span>
 <span><span class="co">#&gt;  [77] hms_1.1.4                   scales_1.4.0                rncl_0.8.10                 glue_1.8.1                 </span></span>
@@ -359,7 +359,7 @@ organised graph to benefit from its emerging properties.</p>
 <span><span class="co">#&gt;  [89] grid_4.6.1                  ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2            </span></span>
 <span><span class="co">#&gt;  [93] nlme_3.1-171                ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5          </span></span>
 <span><span class="co">#&gt;  [97] S4Arrays_1.13.2             viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6               </span></span>
-<span><span class="co">#&gt; [101] sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.12        SparseArray_1.13.4         </span></span>
+<span><span class="co">#&gt; [101] sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.4         </span></span>
 <span><span class="co">#&gt; [105] ggrepel_0.9.8               htmlwidgets_1.6.4           farver_2.1.2                memoise_2.0.1              </span></span>
 <span><span class="co">#&gt; [109] htmltools_0.5.9             pkgdown_2.2.1               lifecycle_1.0.5             httr_1.4.9                 </span></span>
 <span><span class="co">#&gt; [113] bit64_4.8.6                 MASS_7.3-66</span></span></code></pre>

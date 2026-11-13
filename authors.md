@@ -16,13 +16,13 @@ Source:
 [`DESCRIPTION`](https://codeberg.org/Minotau-R/ariadneDB/src/branch/devel/DESCRIPTION)
 
 Benedetti G, Bastiaanssen T, Lahti L (2026). *ariadneDB: ariadneDB:
-curated graph of microbiome-related databases*. R package version 0.2.1,
+curated graph of microbiome-related databases*. R package version 0.2.2,
 <https://codeberg.org/Minotau-R/ariadneDB>.
 
 @Manual{,\
   title = {ariadneDB: ariadneDB: curated graph of microbiome-related databases},\
   author = {Giulio Benedetti and Thomaz Bastiaanssen and Leo Lahti},\
   year = {2026},\
-  note = {R package version 0.2.1},\
+  note = {R package version 0.2.2},\
   url = {https://codeberg.org/Minotau-R/ariadneDB},\
 }

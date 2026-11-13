@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">ariadneDB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +58,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="ariadnedb-the-ariadne-resource-graph-database-">ariadneDB: the ariadne resource graph database <img src="https://raw.githubusercontent.com/Minotau-R/ariadne/devel/man/figures/ariadne_logo.png" align="right" width="120"><a class="anchor" aria-label="anchor" href="#ariadnedb-the-ariadne-resource-graph-database-"></a>
 </h1></div>
-<p><a href="https://doi.org/10.5281/zenodo.18788725" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18788725.svg" alt="DOI"></a> <a href="https://github.com/Minotau-R/ariadneDB/issues" class="external-link"><img src="https://img.shields.io/github/issues/Minotau-R/ariadneDB" alt="issues"></a> <a href="https://github.com/Minotau-R/ariadneDB/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/Minotau-R/ariadneDB" alt="pulls"></a> <a href="https://github.com/Minotau-R/ariadneDB/actions" class="external-link"><img src="https://github.com/Minotau-R/ariadneDB/workflows/build/badge.svg" alt="R-CMD-check"></a> <a href="https://codecov.io/gh/Minotau-R/ariadneDB" class="external-link"><img src="https://codecov.io/gh/Minotau-R/ariadneDB/graph/badge.svg?token=mGrzAP0atR" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/minotau-r/ariadnedb" class="external-link"><img src="https://www.codefactor.io/repository/github/minotau-r/ariadnedb/badge" alt="CodeFactor"></a></p>
+<p><a href="https://github.com/Minotau-R/ariadneDB/issues" class="external-link"><img src="https://img.shields.io/github/issues/Minotau-R/ariadneDB" alt="issues"></a> <a href="https://github.com/Minotau-R/ariadneDB/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/Minotau-R/ariadneDB" alt="pulls"></a> <a href="https://github.com/Minotau-R/ariadneDB/actions" class="external-link"><img src="https://github.com/Minotau-R/ariadneDB/workflows/build/badge.svg" alt="R-CMD-check"></a> <a href="https://codecov.io/gh/Minotau-R/ariadneDB" class="external-link"><img src="https://codecov.io/gh/Minotau-R/ariadneDB/graph/badge.svg?token=mGrzAP0atR" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/minotau-r/ariadnedb" class="external-link"><img src="https://www.codefactor.io/repository/github/minotau-r/ariadnedb/badge" alt="CodeFactor"></a> <a href="https://doi.org/10.5281/zenodo.18788725" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18788725.svg" alt="DOI"></a></p>
 <p>ariadneDB hosts a harmonised resource graph with feature mappings from various biological databases, powering the R package <a href="https://codeberg.org/Minotau-R/ariadne" class="external-link">ariadne</a> and its Python extension <a href="https://github.com/Minotau-R/ariadnePy" class="external-link">ariadnePy</a>. A walkthrough on the available resources can be found in <a href="https://minotau-r.github.io/ariadneDB/articles/ariadneDB.html">this vignette</a>.</p>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
@@ -79,10 +79,10 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://codeberg.org/Minotau-R/ariadne" class="external-link">ariadne</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Fetch resources</span></span>
-<span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ariadne/man/ariadne.html" class="external-link">ariadne</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://minotau-r.github.io/ariadne/reference/ariadne.html" class="external-link">ariadne</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Visualise resource graph</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/ariadne/man/plotPath.html" class="external-link">plotPath</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://minotau-r.github.io/ariadne/reference/plotPath.html" class="external-link">plotPath</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></code></pre></div>
 <p>In Python:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> ariadnepy</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
