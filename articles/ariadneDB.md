@@ -14,22 +14,14 @@ The relational information of each resource is described by a graph,
 where nodes and edges represent feature types and mappings between them,
 respectively. In ariadneDB, these graphs are stored in the Graph
 Modelling Language (GML), which is a standard format for relational
-data. Currently, ariadneDB includes 11 resources that span a diverse set
+data. Currently, ariadneDB includes 12 resources that span a diverse set
 of biological domains and applications.
 
-| **Resource** | **Description** | **Usage** | **Reference** |
-|----|----|----|----|
-| [BugSigDB](https://bugsigdb.org) | Literature-based association of signature taxa by phenotype | Link taxa to associated phenotypes | Geistlinger et al. (2024) |
-| [ChocoPhlAn](https://huttenhower.sph.harvard.edu/humann) | Pangenome database resulting from the ChocoPhlAn pipeline | Link UniRef gene families to functional information | Franzosa et al. (2018) |
-| [Gut Modules (GM)](https://raeslab.org/software/) | Legacy versions of gut metabolic modules and gut brain modules | Link KOs to gut modules | Vieira-Silva et al. (2016); Valles-Colomer et al. (2019) |
-| [Gene Ontology (GO)](https://www.geneontology.org/) |  |  | Ashburner et al. (2000) |
-| [KEGG](https://www.genome.jp/kegg/) | Metabolic pathway database | Link ko and ec to reactions, pathways and organisms | Kanehisa and Goto (2000) |
-| [MSigDB](https://www.gsea-msigdb.org/gsea/msigdb) |  |  | Subramanian et al. (2005) |
-| [Open Tree of Life (OTT)](https://opentreeoflife.github.io/) | Synthetic tree of life constructed by combining public phylogenetic trees and taxonomic data | Link different taxonomies and taxon names | Subramanian et al. (2005) |
-| [Rhea](https://www.rhea-db.org/) | The reactome database | Link rhea reactions to chebi compounds and external pathways | Bansal et al. (2022) |
-| [TIGRFAMs](https://www.ncbi.nlm.nih.gov/refseq/annotation_prok/tigrfams/) |  | Link TIGRFAMs to GO | Haft et al. (2001) |
-| [UniProt](https://www.uniprot.org/) | The proteome database | Link UniRef gene families to uniprotkb proteins, NCBI taxa and other external identifiers | Bateman et al. (2025) |
-| [Web of Life (WoL)](https://www.web-of-life.es/) | Biological network database | Link UniRef gene families to functional and taxonomic information | Zhu et al. (2019) |
+Geistlinger et al. (2024) Franzosa et al. (2018) Hafner et al. (2024)
+Vieira-Silva et al. (2016); Valles-Colomer et al. (2019) Ashburner et
+al. (2000) Kanehisa and Goto (2000) Subramanian et al. (2005) Hinchliff
+et al. (2015) Bansal et al. (2022) Haft et al. (2001) Bateman et al.
+(2025) Zhu et al. (2019)
 
 ## Tutorial
 
@@ -45,10 +37,11 @@ necessary dependencies.
 [`library`](https://rdrr.io/r/base/library.html)`(`[`ggplot2`](https://ggplot2.tidyverse.org)`)`\
 [`library`](https://rdrr.io/r/base/library.html)`(`[`DT`](https://github.com/rstudio/DT)`)`
 
-When `ariadne` is executed, the graph for each resource is retrieved
-from the database release on
-[Zenodo](https://zenodo.org/records/18788725) and combined into a single
-igraph object.
+When
+[`ariadne()`](https://minotau-r.github.io/ariadne/reference/ariadne.html)
+is executed, the graph for each resource is retrieved from the database
+release on [Zenodo](https://zenodo.org/records/18788725) and combined
+into a single igraph object.
 
 \
 `# Import resource graph`\
@@ -203,8 +196,8 @@ R session information:
     #> [1] stats     graphics  grDevices utils     datasets  methods   base     
     #> 
     #> other attached packages:
-    #> [1] DT_0.34.0        dplyr_1.2.1      ariadne_0.2.12   igraph_2.3.4     ggraph_2.2.2     ggplot2_4.0.3   
-    #> [7] BiocStyle_2.41.0
+    #> [1] jsonlite_2.0.0    htmlwidgets_1.6.4 DT_0.34.0         dplyr_1.2.1       ariadne_0.2.13    igraph_2.3.4     
+    #> [7] ggraph_2.2.2      ggplot2_4.0.3     BiocStyle_2.41.0 
     #> 
     #> loaded via a namespace (and not attached):
     #>   [1] DBI_1.3.0                   gridExtra_2.3.1             enviPathR_1.0.2             httr2_1.3.0                
@@ -213,29 +206,28 @@ R session information:
     #>  [13] vctrs_0.7.3                 stringr_1.6.0               pkgconfig_2.0.3             crayon_1.5.3               
     #>  [17] fastmap_1.2.0               dbplyr_2.6.0                XVector_0.53.0              labeling_0.4.3             
     #>  [21] rmarkdown_2.32              tzdb_0.5.0                  ragg_1.5.2                  purrr_1.2.2                
-    #>  [25] bit_4.6.0                   xfun_0.62                   cachem_1.1.0                jsonlite_2.0.0             
-    #>  [29] progress_1.2.3              blob_1.3.0                  DelayedArray_0.39.8         BiocParallel_1.47.0        
-    #>  [33] tweenr_2.0.3                prettyunits_1.2.0           parallel_4.6.1              R6_2.6.1                   
-    #>  [37] bslib_0.12.0                stringi_1.8.9               RColorBrewer_1.1-3          GenomicRanges_1.65.4       
-    #>  [41] jquerylib_0.1.4             Rcpp_1.1.2                  Seqinfo_1.3.2               bookdown_0.48              
-    #>  [45] assertthat_0.2.1            SummarizedExperiment_1.43.0 knitr_1.52                  readr_2.2.0                
-    #>  [49] IRanges_2.47.5              rentrez_1.2.4               rotl_3.1.1                  Matrix_1.7-6               
-    #>  [53] tidyselect_1.2.1            abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5              
-    #>  [57] codetools_0.2-20            curl_8.1.0                  lattice_0.23-1              tibble_3.3.1               
-    #>  [61] Biobase_2.73.2              withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                   
-    #>  [65] evaluate_1.0.5              desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3        
-    #>  [69] Biostrings_2.81.9           pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3             
-    #>  [73] MatrixGenerics_1.25.0       stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10          
-    #>  [77] hms_1.1.4                   scales_1.4.0                rncl_0.8.10                 glue_1.8.1                 
-    #>  [81] tools_4.6.1                 data.table_1.18.6.1         forcats_1.0.1               XML_3.99-0.25              
-    #>  [85] fs_2.1.0                    graphlayouts_1.2.5          multifactor_0.1.3           tidygraph_1.3.1            
-    #>  [89] grid_4.6.1                  ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2            
-    #>  [93] nlme_3.1-171                ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5          
-    #>  [97] S4Arrays_1.13.2             viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6               
-    #> [101] sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.4         
-    #> [105] ggrepel_0.9.8               htmlwidgets_1.6.4           farver_2.1.2                memoise_2.0.1              
-    #> [109] htmltools_0.5.9             pkgdown_2.2.1               lifecycle_1.0.5             httr_1.4.9                 
-    #> [113] bit64_4.8.6                 MASS_7.3-66
+    #>  [25] bit_4.6.0                   xfun_0.62                   cachem_1.1.0                progress_1.2.3             
+    #>  [29] blob_1.3.0                  DelayedArray_0.39.8         BiocParallel_1.47.0         tweenr_2.0.3               
+    #>  [33] prettyunits_1.2.0           parallel_4.6.1              R6_2.6.1                    bslib_0.12.0               
+    #>  [37] stringi_1.8.9               RColorBrewer_1.1-3          GenomicRanges_1.65.4        jquerylib_0.1.4            
+    #>  [41] Rcpp_1.1.2                  Seqinfo_1.3.2               bookdown_0.48               assertthat_0.2.1           
+    #>  [45] SummarizedExperiment_1.43.0 knitr_1.52                  readr_2.2.0                 IRanges_2.47.5             
+    #>  [49] rentrez_1.2.4               rotl_3.1.1                  Matrix_1.7-6                tidyselect_1.2.1           
+    #>  [53] abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5               codetools_0.2-20           
+    #>  [57] curl_8.1.0                  lattice_0.23-1              tibble_3.3.1                Biobase_2.73.2             
+    #>  [61] withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                    evaluate_1.0.5             
+    #>  [65] desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3         Biostrings_2.81.9          
+    #>  [69] pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3              MatrixGenerics_1.25.0      
+    #>  [73] stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10           hms_1.1.4                  
+    #>  [77] scales_1.4.0                rncl_0.8.10                 glue_1.8.1                  tools_4.6.1                
+    #>  [81] data.table_1.18.6.1         forcats_1.0.1               XML_3.99-0.25               fs_2.1.0                   
+    #>  [85] graphlayouts_1.2.5          multifactor_0.1.3           tidygraph_1.3.1             grid_4.6.1                 
+    #>  [89] ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2             nlme_3.1-171               
+    #>  [93] ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5           S4Arrays_1.13.2            
+    #>  [97] viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6                sass_0.4.10                
+    #> [101] digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.5          ggrepel_0.9.8              
+    #> [105] farver_2.1.2                memoise_2.0.1               htmltools_0.5.9             pkgdown_2.2.1              
+    #> [109] lifecycle_1.0.5             httr_1.4.9                  bit64_4.8.6                 MASS_7.3-66
 
 ## References
 
@@ -260,9 +252,18 @@ Captures Patterns of Differential Abundance across a Broad Range of
 Host-Associated Microbial Signatures.” *Nature Biotechnology* 42 (5):
 790–802.
 
+Hafner, Jasmin, Tim Lorsbach, Sebastian Schmidt, et al. 2024.
+“Advancements in Biotransformation Pathway Prediction: Enhancements,
+Datasets, and Novel Functionalities in enviPath.” *Journal of
+Cheminformatics* 16 (1): 93.
+
 Haft, Daniel H, Brendan J Loftus, Delwood L Richardson, et al. 2001.
 “TIGRFAMs: A Protein Family Resource for the Functional Identification
 of Proteins.” *Nucleic Acids Research* 29 (1): 41–43.
+
+Hinchliff, Cody E, Stephen A Smith, James F Allman, et al. 2015.
+“Synthesis of Phylogeny and Taxonomy into a Comprehensive Tree of Life.”
+*Proceedings of the National Academy of Sciences* 112 (41): 12764–69.
 
 Kanehisa, Minoru, and Susumu Goto. 2000. “KEGG: Kyoto Encyclopedia of
 Genes and Genomes.” *Nucleic Acids Research* 28 (1): 27–30.

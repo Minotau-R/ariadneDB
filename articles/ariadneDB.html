@@ -71,7 +71,7 @@ Benedetti</h4>
 Turku<br><a class="author_email" href="mailto:#"></a><a href="mailto:giulio.benedetti@utu.fi" class="email">giulio.benedetti@utu.fi</a>
       </address>
                   
-            <h4 data-toc-skip class="date">13 November 2026</h4>
+            <h4 data-toc-skip class="date">20 November 2026</h4>
       
       <small class="dont-index">Source: <a href="https://codeberg.org/Minotau-R/ariadneDB/src/branch/devel/vignettes/ariadneDB.Rmd" class="external-link"><code>vignettes/ariadneDB.Rmd</code></a></small>
       <div class="d-none name"><code>ariadneDB.Rmd</code></div>
@@ -92,105 +92,20 @@ database itself.</p>
 where nodes and edges represent feature types and mappings between them,
 respectively. In ariadneDB, these graphs are stored in the Graph
 Modelling Language (GML), which is a standard format for relational
-data. Currently, ariadneDB includes 11 resources that span a diverse set
+data. Currently, ariadneDB includes 12 resources that span a diverse set
 of biological domains and applications.</p>
-<table style="width:99%;" class="table">
-<colgroup>
-<col width="24%">
-<col width="29%">
-<col width="19%">
-<col width="26%">
-</colgroup>
-<thead><tr class="header">
-<th><strong>Resource</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Usage</strong></th>
-<th><strong>Reference</strong></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://bugsigdb.org" class="external-link">BugSigDB</a></td>
-<td>Literature-based association of signature taxa by phenotype</td>
-<td>Link taxa to associated phenotypes</td>
-<td><span class="citation"><span class="nocase">Geistlinger et
-al.</span> (2024)</span></td>
-</tr>
-<tr class="even">
-<td><a href="https://huttenhower.sph.harvard.edu/humann" class="external-link">ChocoPhlAn</a></td>
-<td>Pangenome database resulting from the ChocoPhlAn pipeline</td>
-<td>Link UniRef gene families to functional information</td>
-<td><span class="citation"><span class="nocase">Franzosa et al.</span>
-(2018)</span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://raeslab.org/software/" class="external-link">Gut Modules (GM)</a></td>
-<td>Legacy versions of gut metabolic modules and gut brain modules</td>
-<td>Link KOs to gut modules</td>
-<td>
-<span class="citation"><span class="nocase">Vieira-Silva et
-al.</span> (2016)</span>; <span class="citation"><span class="nocase">Valles-Colomer et al.</span> (2019)</span>
-</td>
-</tr>
-<tr class="even">
-<td><a href="https://www.geneontology.org/" class="external-link">Gene Ontology (GO)</a></td>
-<td></td>
-<td></td>
-<td><span class="citation"><span class="nocase">Ashburner et al.</span>
-(2000)</span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.genome.jp/kegg/" class="external-link">KEGG</a></td>
-<td>Metabolic pathway database</td>
-<td>Link ko and ec to reactions, pathways and organisms</td>
-<td><span class="citation">Kanehisa and Goto (2000)</span></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.gsea-msigdb.org/gsea/msigdb" class="external-link">MSigDB</a></td>
-<td></td>
-<td></td>
-<td><span class="citation"><span class="nocase">Subramanian et
-al.</span> (2005)</span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://opentreeoflife.github.io/" class="external-link">Open Tree of Life
-(OTT)</a></td>
-<td>Synthetic tree of life constructed by combining public phylogenetic
-trees and taxonomic data</td>
-<td>Link different taxonomies and taxon names</td>
-<td><span class="citation"><span class="nocase">Subramanian et
-al.</span> (2005)</span></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.rhea-db.org/" class="external-link">Rhea</a></td>
-<td>The reactome database</td>
-<td>Link rhea reactions to chebi compounds and external pathways</td>
-<td><span class="citation"><span class="nocase">Bansal et al.</span>
-(2022)</span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.ncbi.nlm.nih.gov/refseq/annotation_prok/tigrfams/" class="external-link">TIGRFAMs</a></td>
-<td></td>
-<td>Link TIGRFAMs to GO</td>
-<td><span class="citation">Haft et al. (2001)</span></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.uniprot.org/" class="external-link">UniProt</a></td>
-<td>The proteome database</td>
-<td>Link UniRef gene families to uniprotkb proteins, NCBI taxa and other
-external identifiers</td>
-<td><span class="citation"><span class="nocase">Bateman et al.</span>
-(2025)</span></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.web-of-life.es/" class="external-link">Web of Life (WoL)</a></td>
-<td>Biological network database</td>
-<td>Link UniRef gene families to functional and taxonomic
-information</td>
-<td><span class="citation"><span class="nocase">Zhu et al.</span>
-(2019)</span></td>
-</tr>
-</tbody>
-</table>
+<div id="pandoc-cite-staging" style="display:none;">
+<p><span id="cite-src-1"><span class="citation"><span class="nocase">Geistlinger et al.</span> (2024)</span></span> <span id="cite-src-2"><span class="citation"><span class="nocase">Franzosa et
+al.</span> (2018)</span></span> <span id="cite-src-3"><span class="citation">Hafner et al. (2024)</span></span> <span id="cite-src-4"><span class="citation"><span class="nocase">Vieira-Silva
+et al.</span> (2016)</span>; <span class="citation"><span class="nocase">Valles-Colomer et al.</span> (2019)</span></span> <span id="cite-src-5"><span class="citation"><span class="nocase">Ashburner et
+al.</span> (2000)</span></span> <span id="cite-src-6"><span class="citation">Kanehisa and Goto (2000)</span></span> <span id="cite-src-7"><span class="citation"><span class="nocase">Subramanian
+et al.</span> (2005)</span></span> <span id="cite-src-8"><span class="citation"><span class="nocase">Hinchliff et al.</span>
+(2015)</span></span> <span id="cite-src-9"><span class="citation"><span class="nocase">Bansal et al.</span> (2022)</span></span> <span id="cite-src-10"><span class="citation">Haft et al. (2001)</span></span>
+<span id="cite-src-11"><span class="citation"><span class="nocase">Bateman et al.</span> (2025)</span></span> <span id="cite-src-12"><span class="citation"><span class="nocase">Zhu et
+al.</span> (2019)</span></span></p>
+</div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["<a href=\"https://zenodo.org/records/\" target=\"_blank\" rel=\"noopener\">BugSigDB<\/a>","<a href=\"https://zenodo.org/records/\" target=\"_blank\" rel=\"noopener\">ChocoPhlAn<\/a>","<a href=\"https://envipath.org/\" target=\"_blank\" rel=\"noopener\">enviPath<\/a>","<a href=\"https://github.com/\" target=\"_blank\" rel=\"noopener\">GM<\/a>","<a href=\"https://release.geneontology.org/\" target=\"_blank\" rel=\"noopener\">GO<\/a>","<a href=\"https://www.kegg.jp/\" target=\"_blank\" rel=\"noopener\">KEGG<\/a>","<a href=\"https://zenodo.org/records/\" target=\"_blank\" rel=\"noopener\">MSigDB<\/a>","<a href=\"https://opentreeoflife.github.io/\" target=\"_blank\" rel=\"noopener\">OTT<\/a>","<a href=\"https://www.rhea-db.org/\" target=\"_blank\" rel=\"noopener\">Rhea<\/a>","<a href=\"https://ftp.ncbi.nlm.nih.gov/\" target=\"_blank\" rel=\"noopener\">TIGRFAMs<\/a>","<a href=\"https://www.uniprot.org\" target=\"_blank\" rel=\"noopener\">UniProt<\/a>","<a href=\"https://ftp.microbio.me/pub/\" target=\"_blank\" rel=\"noopener\">WoL<\/a>"],["Literature-based association of signature taxa by phenotype","Pangenome database resulting from the ChocoPhlAn pipeline","Environmental contaminant biotransformation pathway database","Legacy versions of gut metabolic modules and gut brain modules","Controlled vocabulary of gene and gene product attributes","Metabolic pathway database","Molecular Signatures Database of annotated gene sets","Synthetic tree of life constructed by combining public phylogenetic trees and taxonomic data","The reactome database","Protein family definitions for functional annotation","The proteome database","Biological network database"],["Link taxa to associated phenotypes","Link UniRef gene families to functional information","Link compounds and reactions to biotransformation pathways","Link KOs to gut modules","Link genes and proteins to biological processes, functions, and components","Link ko and ec to reactions, pathways and organisms","Link genes to functional pathways and biological states","Link different taxonomies and taxon names","Link rhea reactions to chebi compounds and external pathways","Link TIGRFAMs to GO","Link UniRef gene families to uniprotkb proteins, NCBI taxa and other identifiers","Link UniRef gene families to functional and taxonomic information"],["ODC BY 1.0","MIT","CC BY-NC-SA 4.0","—","CC BY 4.0","—","CC BY 4.0","CC0 1.0","CC BY 4.0","CC BY-SA 4.0","CC BY 4.0","—"],["@geistlinger2024bugsigdb","@franzosa2018species","@hafner2024envipath","@vieira2016species; @valles2019neuroactive","@ashburner2000gene","@kanehisa2000kegg","@subramanian2005gene","@hinchliff2015synthesis","@bansal2022rhea","@haft2001tigrfams","@bateman2025uniprot","@zhu2019phylogenomics"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Resource<\/th>\n      <th>Description<\/th>\n      <th>Usage<\/th>\n      <th>License<\/th>\n      <th>Reference<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"drawCallback":"\n        function(settings) {\n            var api = this.api();\n            var map = [\"cite-src-1\",\"cite-src-2\",\"cite-src-3\",\"cite-src-4\",\"cite-src-5\",\"cite-src-6\",\"cite-src-7\",\"cite-src-8\",\"cite-src-9\",\"cite-src-10\",\"cite-src-11\",\"cite-src-12\"];\n            api.rows({page: 'current'}).nodes().each(function(rowNode, idx) {\n                var rowIdx = api.row(rowNode).index();\n                var srcId = map[rowIdx];\n                var renderedHtml = $('#' + srcId).html();\n                if (renderedHtml) {\n                    $('td', rowNode).eq(5).html(renderedHtml);\n                }\n           });\n        }\n    ","columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Resource","targets":1},{"name":"Description","targets":2},{"name":"Usage","targets":3},{"name":"License","targets":4},{"name":"Reference","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":["options.drawCallback"],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="tutorial">Tutorial<a class="anchor" aria-label="anchor" href="#tutorial"></a>
@@ -205,8 +120,8 @@ necessary dependencies.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT" class="external-link">DT</a></span><span class="op">)</span></span></code></pre></div>
-<p>When <code>ariadne</code> is executed, the graph for each resource is
-retrieved from the database release on <a href="https://zenodo.org/records/18788725" class="external-link">Zenodo</a> and combined into
+<p>When <code><a href="https://minotau-r.github.io/ariadne/reference/ariadne.html" class="external-link">ariadne()</a></code> is executed, the graph for each resource
+is retrieved from the database release on <a href="https://zenodo.org/records/18788725" class="external-link">Zenodo</a> and combined into
 a single igraph object.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import resource graph</span></span>
@@ -225,8 +140,8 @@ found in the database.</p>
 <span></span>
 <span><span class="co"># View versions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">datatable</a></span><span class="op">(</span><span class="va">versions</span><span class="op">)</span></span></code></pre></div>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"],["BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","ChocoPhlAn","enviPath","GM","GO","GO","GO","GO","GO","GO","GO","GO","GO","GO","KEGG","MSigDB","MSigDB","MSigDB","OTT","Rhea","TIGRFAMs","UniProt","WoL","WoL"],["v1.3.1","v1.3.0","v1.2.2","v1.2.1","v1.2.0","v1.1.0","v1.0.2","v1.0.1","v1.0.0","v201901b","latest","v1","2026-08-05","2026-06-19","2026-05-19","2026-03-25","2026-01-23","2025-10-10","2025-07-22","2025-06-01","2025-03-16","2025-02-06","latest","2026.1","2025.1","2024.1","latest","latest","v15","latest","v2","v20April2021"],["https://zenodo.org/records/19740674/","https://zenodo.org/records/15272273/","https://zenodo.org/records/13997429/","https://zenodo.org/records/10627578/","https://zenodo.org/records/10407666/","https://zenodo.org/records/6468009/","https://zenodo.org/records/5904281/","https://zenodo.org/records/5819260/","https://zenodo.org/records/5606166/","https://zenodo.org/records/17100034/","https://envipath.org//","https://github.com/omixer/omixer-rpmR/raw/refs/heads/main/inst/extdata/","https://release.geneontology.org/2026-08-05/","https://release.geneontology.org/2026-06-19/","https://release.geneontology.org/2026-05-19/","https://release.geneontology.org/2026-03-25/","https://release.geneontology.org/2026-01-23/","https://release.geneontology.org/2025-10-10/","https://release.geneontology.org/2025-07-22/","https://release.geneontology.org/2025-06-01/","https://release.geneontology.org/2025-03-16/","https://release.geneontology.org/2025-02-06/","https://www.genome.jp/kegg/","https://zenodo.org/records/18968178/","https://zenodo.org/records/15800824/","https://zenodo.org/records/15377497/","https://opentreeoflife.github.io/","https://www.rhea-db.org/","https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/","https://www.uniprot.org/","https://ftp.microbio.me/pub/wol2/","https://ftp.microbio.me/pub/wol-20April2021/"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>resource<\/th>\n      <th>version<\/th>\n      <th>url<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"resource","targets":1},{"name":"version","targets":2},{"name":"url","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>The igraph object is made of two components: edges data and nodes (or
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"],["BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","BugSigDB","ChocoPhlAn","enviPath","GM","GO","GO","GO","GO","GO","GO","GO","GO","GO","GO","KEGG","MSigDB","MSigDB","MSigDB","OTT","Rhea","TIGRFAMs","UniProt","WoL","WoL"],["v1.3.1","v1.3.0","v1.2.2","v1.2.1","v1.2.0","v1.1.0","v1.0.2","v1.0.1","v1.0.0","v201901b","latest","v1","2026-08-05","2026-06-19","2026-05-19","2026-03-25","2026-01-23","2025-10-10","2025-07-22","2025-06-01","2025-03-16","2025-02-06","latest","2026.1","2025.1","2024.1","latest","latest","v15","latest","v2","v20April2021"],["https://zenodo.org/records/19740674/","https://zenodo.org/records/15272273/","https://zenodo.org/records/13997429/","https://zenodo.org/records/10627578/","https://zenodo.org/records/10407666/","https://zenodo.org/records/6468009/","https://zenodo.org/records/5904281/","https://zenodo.org/records/5819260/","https://zenodo.org/records/5606166/","https://zenodo.org/records/17100034/","https://envipath.org//","https://github.com/omixer/omixer-rpmR/raw/refs/heads/main/inst/extdata/","https://release.geneontology.org/2026-08-05/","https://release.geneontology.org/2026-06-19/","https://release.geneontology.org/2026-05-19/","https://release.geneontology.org/2026-03-25/","https://release.geneontology.org/2026-01-23/","https://release.geneontology.org/2025-10-10/","https://release.geneontology.org/2025-07-22/","https://release.geneontology.org/2025-06-01/","https://release.geneontology.org/2025-03-16/","https://release.geneontology.org/2025-02-06/","https://www.kegg.jp//","https://zenodo.org/records/18968178/","https://zenodo.org/records/15800824/","https://zenodo.org/records/15377497/","https://opentreeoflife.github.io//","https://www.rhea-db.org//","https://ftp.ncbi.nlm.nih.gov/release_15.0/","https://www.uniprot.org/","https://ftp.microbio.me/pub/wol2/","https://ftp.microbio.me/pub/wol-20April2021/"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>resource<\/th>\n      <th>version<\/th>\n      <th>url<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"resource","targets":1},{"name":"version","targets":2},{"name":"url","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>The igraph object is made of two components: edges data and nodes (or
 vertices) data, which are stored in two different data tables.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Convert igraph to data.frame pair</span></span>
@@ -247,8 +162,8 @@ summary statistics for each resource integrated within ariadne.</p>
 <span></span>
 <span><span class="co"># View stats</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">datatable</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["BugSigDB","ChocoPhlAn","GM","GO","KEGG","MSigDB","OTT","Rhea","TIGRFAMs","UniProt","WoL","enviPath"],[1,11,2,21,56,15,21,51,2,210,18,7],[2,7,3,22,20,8,7,49,3,56,18,7]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>source<\/th>\n      <th>edges<\/th>\n      <th>nodes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"source","targets":1},{"name":"edges","targets":2},{"name":"nodes","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>The number of edges and nodes represent the amount of links and
+<div class="datatables html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["BugSigDB","ChocoPhlAn","GM","GO","KEGG","MSigDB","OTT","Rhea","TIGRFAMs","UniProt","WoL","enviPath"],[1,11,2,21,56,15,21,51,2,210,18,7],[2,7,3,22,20,8,7,49,3,56,18,7]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>source<\/th>\n      <th>edges<\/th>\n      <th>nodes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"source","targets":1},{"name":"edges","targets":2},{"name":"nodes","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><p>The number of edges and nodes represent the amount of links and
 feature types provided by each resource, respectively. These two metrics
 largely vary between the available resources. The size and graph for
 each resource can be visualized by generating individual graphs with the
@@ -330,8 +245,8 @@ organised graph to benefit from its emerging properties.</p>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] DT_0.34.0        dplyr_1.2.1      ariadne_0.2.12   igraph_2.3.4     ggraph_2.2.2     ggplot2_4.0.3   </span></span>
-<span><span class="co">#&gt; [7] BiocStyle_2.41.0</span></span>
+<span><span class="co">#&gt; [1] jsonlite_2.0.0    htmlwidgets_1.6.4 DT_0.34.0         dplyr_1.2.1       ariadne_0.2.13    igraph_2.3.4     </span></span>
+<span><span class="co">#&gt; [7] ggraph_2.2.2      ggplot2_4.0.3     BiocStyle_2.41.0 </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
 <span><span class="co">#&gt;   [1] DBI_1.3.0                   gridExtra_2.3.1             enviPathR_1.0.2             httr2_1.3.0                </span></span>
@@ -340,29 +255,28 @@ organised graph to benefit from its emerging properties.</p>
 <span><span class="co">#&gt;  [13] vctrs_0.7.3                 stringr_1.6.0               pkgconfig_2.0.3             crayon_1.5.3               </span></span>
 <span><span class="co">#&gt;  [17] fastmap_1.2.0               dbplyr_2.6.0                XVector_0.53.0              labeling_0.4.3             </span></span>
 <span><span class="co">#&gt;  [21] rmarkdown_2.32              tzdb_0.5.0                  ragg_1.5.2                  purrr_1.2.2                </span></span>
-<span><span class="co">#&gt;  [25] bit_4.6.0                   xfun_0.62                   cachem_1.1.0                jsonlite_2.0.0             </span></span>
-<span><span class="co">#&gt;  [29] progress_1.2.3              blob_1.3.0                  DelayedArray_0.39.8         BiocParallel_1.47.0        </span></span>
-<span><span class="co">#&gt;  [33] tweenr_2.0.3                prettyunits_1.2.0           parallel_4.6.1              R6_2.6.1                   </span></span>
-<span><span class="co">#&gt;  [37] bslib_0.12.0                stringi_1.8.9               RColorBrewer_1.1-3          GenomicRanges_1.65.4       </span></span>
-<span><span class="co">#&gt;  [41] jquerylib_0.1.4             Rcpp_1.1.2                  Seqinfo_1.3.2               bookdown_0.48              </span></span>
-<span><span class="co">#&gt;  [45] assertthat_0.2.1            SummarizedExperiment_1.43.0 knitr_1.52                  readr_2.2.0                </span></span>
-<span><span class="co">#&gt;  [49] IRanges_2.47.5              rentrez_1.2.4               rotl_3.1.1                  Matrix_1.7-6               </span></span>
-<span><span class="co">#&gt;  [53] tidyselect_1.2.1            abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5              </span></span>
-<span><span class="co">#&gt;  [57] codetools_0.2-20            curl_8.1.0                  lattice_0.23-1              tibble_3.3.1               </span></span>
-<span><span class="co">#&gt;  [61] Biobase_2.73.2              withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                   </span></span>
-<span><span class="co">#&gt;  [65] evaluate_1.0.5              desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3        </span></span>
-<span><span class="co">#&gt;  [69] Biostrings_2.81.9           pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3             </span></span>
-<span><span class="co">#&gt;  [73] MatrixGenerics_1.25.0       stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10          </span></span>
-<span><span class="co">#&gt;  [77] hms_1.1.4                   scales_1.4.0                rncl_0.8.10                 glue_1.8.1                 </span></span>
-<span><span class="co">#&gt;  [81] tools_4.6.1                 data.table_1.18.6.1         forcats_1.0.1               XML_3.99-0.25              </span></span>
-<span><span class="co">#&gt;  [85] fs_2.1.0                    graphlayouts_1.2.5          multifactor_0.1.3           tidygraph_1.3.1            </span></span>
-<span><span class="co">#&gt;  [89] grid_4.6.1                  ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2            </span></span>
-<span><span class="co">#&gt;  [93] nlme_3.1-171                ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5          </span></span>
-<span><span class="co">#&gt;  [97] S4Arrays_1.13.2             viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6               </span></span>
-<span><span class="co">#&gt; [101] sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.4         </span></span>
-<span><span class="co">#&gt; [105] ggrepel_0.9.8               htmlwidgets_1.6.4           farver_2.1.2                memoise_2.0.1              </span></span>
-<span><span class="co">#&gt; [109] htmltools_0.5.9             pkgdown_2.2.1               lifecycle_1.0.5             httr_1.4.9                 </span></span>
-<span><span class="co">#&gt; [113] bit64_4.8.6                 MASS_7.3-66</span></span></code></pre>
+<span><span class="co">#&gt;  [25] bit_4.6.0                   xfun_0.62                   cachem_1.1.0                progress_1.2.3             </span></span>
+<span><span class="co">#&gt;  [29] blob_1.3.0                  DelayedArray_0.39.8         BiocParallel_1.47.0         tweenr_2.0.3               </span></span>
+<span><span class="co">#&gt;  [33] prettyunits_1.2.0           parallel_4.6.1              R6_2.6.1                    bslib_0.12.0               </span></span>
+<span><span class="co">#&gt;  [37] stringi_1.8.9               RColorBrewer_1.1-3          GenomicRanges_1.65.4        jquerylib_0.1.4            </span></span>
+<span><span class="co">#&gt;  [41] Rcpp_1.1.2                  Seqinfo_1.3.2               bookdown_0.48               assertthat_0.2.1           </span></span>
+<span><span class="co">#&gt;  [45] SummarizedExperiment_1.43.0 knitr_1.52                  readr_2.2.0                 IRanges_2.47.5             </span></span>
+<span><span class="co">#&gt;  [49] rentrez_1.2.4               rotl_3.1.1                  Matrix_1.7-6                tidyselect_1.2.1           </span></span>
+<span><span class="co">#&gt;  [53] abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5               codetools_0.2-20           </span></span>
+<span><span class="co">#&gt;  [57] curl_8.1.0                  lattice_0.23-1              tibble_3.3.1                Biobase_2.73.2             </span></span>
+<span><span class="co">#&gt;  [61] withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                    evaluate_1.0.5             </span></span>
+<span><span class="co">#&gt;  [65] desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3         Biostrings_2.81.9          </span></span>
+<span><span class="co">#&gt;  [69] pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3              MatrixGenerics_1.25.0      </span></span>
+<span><span class="co">#&gt;  [73] stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10           hms_1.1.4                  </span></span>
+<span><span class="co">#&gt;  [77] scales_1.4.0                rncl_0.8.10                 glue_1.8.1                  tools_4.6.1                </span></span>
+<span><span class="co">#&gt;  [81] data.table_1.18.6.1         forcats_1.0.1               XML_3.99-0.25               fs_2.1.0                   </span></span>
+<span><span class="co">#&gt;  [85] graphlayouts_1.2.5          multifactor_0.1.3           tidygraph_1.3.1             grid_4.6.1                 </span></span>
+<span><span class="co">#&gt;  [89] ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2             nlme_3.1-171               </span></span>
+<span><span class="co">#&gt;  [93] ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5           S4Arrays_1.13.2            </span></span>
+<span><span class="co">#&gt;  [97] viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6                sass_0.4.10                </span></span>
+<span><span class="co">#&gt; [101] digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.5          ggrepel_0.9.8              </span></span>
+<span><span class="co">#&gt; [105] farver_2.1.2                memoise_2.0.1               htmltools_0.5.9             pkgdown_2.2.1              </span></span>
+<span><span class="co">#&gt; [109] lifecycle_1.0.5             httr_1.4.9                  bit64_4.8.6                 MASS_7.3-66</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -395,11 +309,23 @@ et al.</span> 2024. <span>“BugSigDB Captures Patterns of Differential
 Abundance across a Broad Range of Host-Associated Microbial
 Signatures.”</span> <em>Nature Biotechnology</em> 42 (5): 790–802.
 </div>
+<div id="ref-hafner2024envipath" class="csl-entry">
+Hafner, Jasmin, Tim Lorsbach, Sebastian Schmidt, et al. 2024.
+<span>“Advancements in Biotransformation Pathway Prediction:
+Enhancements, Datasets, and Novel Functionalities in enviPath.”</span>
+<em>Journal of Cheminformatics</em> 16 (1): 93.
+</div>
 <div id="ref-haft2001tigrfams" class="csl-entry">
 Haft, Daniel H, Brendan J Loftus, Delwood L Richardson, et al. 2001.
 <span>“TIGRFAMs: A Protein Family Resource for the Functional
 Identification of Proteins.”</span> <em>Nucleic Acids Research</em> 29
 (1): 41–43.
+</div>
+<div id="ref-hinchliff2015synthesis" class="csl-entry">
+<span class="nocase">Hinchliff, Cody E, Stephen A Smith, James F Allman,
+et al.</span> 2015. <span>“Synthesis of Phylogeny and Taxonomy into a
+Comprehensive Tree of Life.”</span> <em>Proceedings of the National
+Academy of Sciences</em> 112 (41): 12764–69.
 </div>
 <div id="ref-kanehisa2000kegg" class="csl-entry">
 Kanehisa, Minoru, and Susumu Goto. 2000. <span>“KEGG: Kyoto Encyclopedia
