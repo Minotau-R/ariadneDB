@@ -217,7 +217,7 @@ library(ggplot2)
 library(DT)
 ```
 
-When `ariadne` is executed, the graph for each resource is retrieved from the
+When `ariadne()` is executed, the graph for each resource is retrieved from the
 database release on [Zenodo](https://zenodo.org/records/18788725) and combined
 into a single igraph object.
 
