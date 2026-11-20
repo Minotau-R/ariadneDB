@@ -196,38 +196,39 @@ R session information:
     #> [1] stats     graphics  grDevices utils     datasets  methods   base     
     #> 
     #> other attached packages:
-    #> [1] jsonlite_2.0.0    htmlwidgets_1.6.4 DT_0.34.0         dplyr_1.2.1       ariadne_0.2.13    igraph_2.3.4     
-    #> [7] ggraph_2.2.2      ggplot2_4.0.3     BiocStyle_2.41.0 
+    #>  [1] ariadne_0.2.13      igraph_2.3.4        ggraph_2.2.2        ggplot2_4.0.3       jsonlite_2.0.0     
+    #>  [6] htmlwidgets_1.6.4   DT_0.34.0           dplyr_1.2.1         stringr_1.6.0       data.table_1.18.6.1
+    #> [11] BiocStyle_2.41.0   
     #> 
     #> loaded via a namespace (and not attached):
     #>   [1] DBI_1.3.0                   gridExtra_2.3.1             enviPathR_1.0.2             httr2_1.3.0                
     #>   [5] rlang_1.3.0                 magrittr_2.0.5              otel_0.2.0                  matrixStats_1.5.0          
     #>   [9] compiler_4.6.1              RSQLite_3.53.3              png_0.1-9                   systemfonts_1.3.2          
-    #>  [13] vctrs_0.7.3                 stringr_1.6.0               pkgconfig_2.0.3             crayon_1.5.3               
-    #>  [17] fastmap_1.2.0               dbplyr_2.6.0                XVector_0.53.0              labeling_0.4.3             
-    #>  [21] rmarkdown_2.32              tzdb_0.5.0                  ragg_1.5.2                  purrr_1.2.2                
-    #>  [25] bit_4.6.0                   xfun_0.62                   cachem_1.1.0                progress_1.2.3             
-    #>  [29] blob_1.3.0                  DelayedArray_0.39.8         BiocParallel_1.47.0         tweenr_2.0.3               
-    #>  [33] prettyunits_1.2.0           parallel_4.6.1              R6_2.6.1                    bslib_0.12.0               
-    #>  [37] stringi_1.8.9               RColorBrewer_1.1-3          GenomicRanges_1.65.4        jquerylib_0.1.4            
-    #>  [41] Rcpp_1.1.2                  Seqinfo_1.3.2               bookdown_0.48               assertthat_0.2.1           
-    #>  [45] SummarizedExperiment_1.43.0 knitr_1.52                  readr_2.2.0                 IRanges_2.47.5             
-    #>  [49] rentrez_1.2.4               rotl_3.1.1                  Matrix_1.7-6                tidyselect_1.2.1           
-    #>  [53] abind_1.4-8                 yaml_2.3.12                 viridis_0.6.5               codetools_0.2-20           
-    #>  [57] curl_8.1.0                  lattice_0.23-1              tibble_3.3.1                Biobase_2.73.2             
-    #>  [61] withr_3.0.3                 KEGGREST_1.53.6             S7_0.2.2                    evaluate_1.0.5             
-    #>  [65] desc_1.4.3                  polyclip_1.10-7             BiocFileCache_3.3.3         Biostrings_2.81.9          
-    #>  [69] pillar_1.11.1               BiocManager_1.30.27         filelock_1.0.3              MatrixGenerics_1.25.0      
-    #>  [73] stats4_4.6.1                generics_0.1.4              S4Vectors_0.51.10           hms_1.1.4                  
-    #>  [77] scales_1.4.0                rncl_0.8.10                 glue_1.8.1                  tools_4.6.1                
-    #>  [81] data.table_1.18.6.1         forcats_1.0.1               XML_3.99-0.25               fs_2.1.0                   
-    #>  [85] graphlayouts_1.2.5          multifactor_0.1.3           tidygraph_1.3.1             grid_4.6.1                 
-    #>  [89] ape_5.8-1                   tidyr_1.3.2                 crosstalk_1.2.2             nlme_3.1-171               
-    #>  [93] ggforce_0.5.0               cli_3.6.6                   textshaping_1.0.5           S4Arrays_1.13.2            
-    #>  [97] viridisLite_0.4.3           arrow_26.0.0                gtable_0.3.6                sass_0.4.10                
-    #> [101] digest_0.6.39               BiocGenerics_0.59.13        SparseArray_1.13.5          ggrepel_0.9.8              
-    #> [105] farver_2.1.2                memoise_2.0.1               htmltools_0.5.9             pkgdown_2.2.1              
-    #> [109] lifecycle_1.0.5             httr_1.4.9                  bit64_4.8.6                 MASS_7.3-66
+    #>  [13] vctrs_0.7.3                 pkgconfig_2.0.3             crayon_1.5.3                fastmap_1.2.0              
+    #>  [17] dbplyr_2.6.0                XVector_0.53.0              labeling_0.4.3              rmarkdown_2.32             
+    #>  [21] tzdb_0.5.0                  ragg_1.5.2                  purrr_1.2.2                 bit_4.6.0                  
+    #>  [25] xfun_0.62                   cachem_1.1.0                progress_1.2.3              blob_1.3.0                 
+    #>  [29] DelayedArray_0.39.8         BiocParallel_1.47.0         tweenr_2.0.3                prettyunits_1.2.0          
+    #>  [33] parallel_4.6.1              R6_2.6.1                    bslib_0.12.0                stringi_1.8.9              
+    #>  [37] RColorBrewer_1.1-3          GenomicRanges_1.65.4        jquerylib_0.1.4             Rcpp_1.1.2                 
+    #>  [41] Seqinfo_1.3.2               bookdown_0.48               assertthat_0.2.1            SummarizedExperiment_1.43.0
+    #>  [45] knitr_1.52                  readr_2.2.0                 IRanges_2.47.5              rentrez_1.2.4              
+    #>  [49] rotl_3.1.1                  Matrix_1.7-6                tidyselect_1.2.1            abind_1.4-8                
+    #>  [53] yaml_2.3.12                 viridis_0.6.5               codetools_0.2-20            curl_8.1.0                 
+    #>  [57] lattice_0.23-1              tibble_3.3.1                Biobase_2.73.2              withr_3.0.3                
+    #>  [61] KEGGREST_1.53.6             S7_0.2.2                    evaluate_1.0.5              desc_1.4.3                 
+    #>  [65] polyclip_1.10-7             BiocFileCache_3.3.3         Biostrings_2.81.9           pillar_1.11.1              
+    #>  [69] BiocManager_1.30.27         filelock_1.0.3              MatrixGenerics_1.25.0       stats4_4.6.1               
+    #>  [73] generics_0.1.4              hms_1.1.4                   S4Vectors_0.51.10           scales_1.4.0               
+    #>  [77] rncl_0.8.10                 glue_1.8.1                  tools_4.6.1                 forcats_1.0.1              
+    #>  [81] XML_3.99-0.25               fs_2.1.0                    graphlayouts_1.2.5          multifactor_0.1.3          
+    #>  [85] tidygraph_1.3.1             grid_4.6.1                  ape_5.8-1                   tidyr_1.3.2                
+    #>  [89] crosstalk_1.2.2             nlme_3.1-171                ggforce_0.5.0               cli_3.6.6                  
+    #>  [93] textshaping_1.0.5           S4Arrays_1.13.2             viridisLite_0.4.3           arrow_26.0.0               
+    #>  [97] gtable_0.3.6                sass_0.4.10                 digest_0.6.39               BiocGenerics_0.59.13       
+    #> [101] SparseArray_1.13.5          ggrepel_0.9.8               farver_2.1.2                memoise_2.0.1              
+    #> [105] htmltools_0.5.9             pkgdown_2.2.1               lifecycle_1.0.5             httr_1.4.9                 
+    #> [109] bit64_4.8.6                 MASS_7.3-66
 
 ## References
 
