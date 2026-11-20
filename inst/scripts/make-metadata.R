@@ -7,6 +7,7 @@ meta <- list(
         SourceUrl = "https://zenodo.org/records/",
         SourceVersion = "v1",
         DataProvider = "BugSigDB",
+        WebUrl = "https://bugsigdb.org",
         License = "ODC BY 1.0",
         DOI = "10.1038/s41587-023-01872-y",
         Location_Prefix = 18788725
@@ -15,14 +16,16 @@ meta <- list(
         SourceUrl = "https://zenodo.org/records/",
         SourceVersion = "v201901b",
         DataProvider = "bioBakery",
+        WebUrl = "https://huttenhower.sph.harvard.edu/humann",
         License = "MIT",
         DOI = "10.1038/s41592-018-0176-y",
         Location_Prefix = 18788725
     ),
     enviPath = data.frame(
-        SourceUrl = "https://envipath.org/",
+        SourceUrl = NA,
         SourceVersion = "v2026_10",
         DataProvider = "enviPath",
+        WebUrl = "https://envipath.org",
         License = "CC BY-NC-SA 4.0",
         DOI = "10.1186/s13321-024-00881-6",
         Location_Prefix = 18788725
@@ -31,6 +34,7 @@ meta <- list(
         SourceUrl = "https://github.com/",
         SourceVersion = "v1",
         DataProvider = "Raes Lab",
+        WebUrl = "https://code.raeslab.org",
         License = NA,
         DOI = "10.1038/nmicrobiol.2016.88, 10.1038/s41564-018-0337-x",
         Location_Prefix = 18788725
@@ -39,14 +43,16 @@ meta <- list(
         SourceUrl = "https://release.geneontology.org/",
         SourceVersion = "v2026-01-23",
         DataProvider = "Gene Onthology",
+        WebUrl = "https://www.geneontology.org",
         License = "CC BY 4.0",
         DOI = "10.1038/75556",
         Location_Prefix = 18788725
     ),
     KEGG = data.frame(
-        SourceUrl = "https://www.kegg.jp/",
+        SourceUrl = NA,
         SourceVersion = "v117",
         DataProvider = "Kyoto Encyclopedia of Genes and Genomes",
+        WebUrl = "https://www.kegg.jp",
         License = NA,
         DOI = "10.1093/nar/28.1.27",
         Location_Prefix = 18788725
@@ -55,22 +61,25 @@ meta <- list(
         SourceUrl = "https://zenodo.org/records/",
         SourceVersion = "2024.1",
         DataProvider = "Broad Institute",
+        WebUrl = "https://www.gsea-msigdb.org/gsea/msigdb",
         License = "CC BY 4.0",
         DOI = "10.1073/pnas.0506580102",
         Location_Prefix = 18788725
     ),
     OTT = data.frame(
-        SourceUrl = "https://opentreeoflife.github.io/",
+        SourceUrl = NA,
         SourceVersion = "v3.7",
         DataProvider = "Open Tree Taxonomy",
+        WebUrl = "https://opentreeoflife.github.io",
         License = "CC0 1.0",
         DOI = "10.1073/pnas.1423041112",
         Location_Prefix = 18788725
     ),
     Rhea = data.frame(
-        SourceUrl = "https://www.rhea-db.org/",
+        SourceUrl = NA,
         SourceVersion = "v140",
         DataProvider = "Swiss Institute of Bioinformatics",
+        WebUrl = "https://www.rhea-db.org",
         License = "CC BY 4.0",
         DOI = "10.1093/nar/gkab1016",
         Location_Prefix = 18788725
@@ -79,6 +88,7 @@ meta <- list(
         SourceUrl = "https://ftp.ncbi.nlm.nih.gov/",
         SourceVersion = "v15",
         DataProvider = "NCBI",
+        WebUrl = "https://www.ncbi.nlm.nih.gov/refseq/annotation_prok/tigrfams",
         License = "CC BY-SA 4.0",
         DOI = "10.1093/nar/29.1.41",
         Location_Prefix = 18788725
@@ -87,6 +97,7 @@ meta <- list(
         SourceUrl = "https://www.uniprot.org",
         SourceVersion = "v2026_01",
         DataProvider = "UniProt",
+        WebUrl = "https://www.uniprot.org",
         License = "CC BY 4.0",
         DOI = "10.1093/nar/gkae1010",
         Location_Prefix = 18788725
@@ -95,6 +106,7 @@ meta <- list(
         SourceUrl = "https://ftp.microbio.me/pub/",
         SourceVersion = "v20April2021",
         DataProvider = "Web of Life",
+        WebUrl = "https://www.web-of-life.es",
         License = NA,
         DOI = "10.1038/s41467-019-13443-4",
         Location_Prefix = 18788726
@@ -103,6 +115,7 @@ meta <- list(
         SourceUrl = "https://ftp.microbio.me/pub/",
         SourceVersion = "v2",
         DataProvider = "Web of Life",
+        WebUrl = "https://www.web-of-life.es",
         License = NA,
         DOI = "10.1038/s41467-019-13443-4",
         Location_Prefix = 18788725
@@ -131,7 +144,7 @@ meta <- cbind(meta, data.frame(
 
 col.names <- c(
     "Title", "Description", "BiocVersion", "SourceType", "SourceUrl",
-    "SourceVersion", "DataProvider", "License", "DOI", "Maintainer",
+    "SourceVersion", "DataProvider", "WebUrl", "License", "DOI", "Maintainer",
     "RDataClass", "DispatchClass", "Location_Prefix", "RDataPath"
 )
 

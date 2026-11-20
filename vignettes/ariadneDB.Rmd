@@ -29,13 +29,24 @@ knitr::opts_chunk$set(
     comment = "#>"
 )
 
-library(ariadne)
-
-# Fetch live metadata from your package
-cat_df <- listResourceCatalogue()
-
 # Set global DT options
 options(DT.options = list(pageLength = 5))
+```
+
+```{r meta, echo = FALSE, message = FALSE}
+library(data.table)
+library(stringr)
+
+# Fetch live metadata from your package
+meta_file <- system.file("extdata", "metadata.csv", package = "ariadneDB")
+
+meta <- fread(meta_file)
+
+meta$resource <-  str_split_i(meta$Title, "\\s+", 2L)
+
+meta <- meta[ , c("resource", "WebUrl", "License")]
+
+meta <- meta[!duplicated(meta), ]
 ```
 
 # Introduction
@@ -50,7 +61,7 @@ The relational information of each resource is described by a graph, where nodes
 and edges represent feature types and mappings between them, respectively. In
 ariadneDB, these graphs are stored in the Graph Modelling Language (GML), which
 is a standard format for relational data. Currently, ariadneDB includes
-`r nrow(cat_df)` resources that span a diverse set of biological domains and
+`r nrow(meta)` resources that span a diverse set of biological domains and
 applications.
 
 ```{r restbl, echo = FALSE, message = FALSE}
@@ -65,13 +76,13 @@ annotations <- list(
         reference = "@geistlinger2024bugsigdb"
     ),
     ChocoPhlAn = c(
-        full = "ChocoPhlAn",
+        full = NA,
         desc = "Pangenome database resulting from the ChocoPhlAn pipeline",
         use = "Link UniRef gene families to functional information",
         reference = "@franzosa2018species"
     ),
     enviPath = c(
-        full = "enviPath",
+        full = NA,
         desc = "Environmental contaminant biotransformation pathway database",
         use = "Link compounds and reactions to biotransformation pathways",
         reference = "@hafner2024envipath"
@@ -107,19 +118,19 @@ annotations <- list(
         reference = "@hinchliff2015synthesis"
     ),
     Rhea = c(
-        full = "Rhea",
+        full = NA,
         desc = "The reactome database",
         use = "Link rhea reactions to chebi compounds and external pathways",
         reference = "@bansal2022rhea"
     ),
     TIGRFAMs = c(
-        full = "TIGRFAMs",
+        full = NA,
         desc = "Protein family definitions for functional annotation",
         use = "Link TIGRFAMs to GO",
         reference = "@haft2001tigrfams"
     ),
     UniProt = c(
-        full = "UniProt",
+        full = NA,
         desc = "The proteome database",
         use = "Link UniRef gene families to uniprotkb proteins, NCBI taxa and other identifiers",
         reference = "@bateman2025uniprot"
@@ -135,13 +146,17 @@ annotations <- list(
 ann_df <- bind_rows(annotations, .id = "resource")
 
 # Merge, build markdown strings and select final columns
-tbl <- cat_df |>
+tbl <- meta |>
     left_join(ann_df, by = "resource") |>
     mutate(
-        Resource = sprintf(
-            '<a href="%s" target="_blank" rel="noopener">%s</a>', url, resource
+        Title = ifelse(
+            is.na(full), resource, sprintf("%s (%s)", full, resource)
         ),
-        License = coalesce(license, "—")
+        Resource = sprintf(
+            '<a href="%s" target="_blank" rel="noopener">%s</a>',
+            WebUrl, Title
+        ),
+        License = coalesce(License, "—")
     ) |>
     select(
         Resource,
