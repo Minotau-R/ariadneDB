@@ -29,6 +29,11 @@ knitr::opts_chunk$set(
     comment = "#>"
 )
 
+library(ariadne)
+
+# Fetch live metadata from your package
+cat_df <- listResourceCatalogue()
+
 # Set global DT options
 options(DT.options = list(pageLength = 5))
 ```
@@ -44,22 +49,159 @@ as _resources_ to distinguish them from the ariadne database itself.
 The relational information of each resource is described by a graph, where nodes
 and edges represent feature types and mappings between them, respectively. In
 ariadneDB, these graphs are stored in the Graph Modelling Language (GML), which
-is a standard format for relational data. Currently, ariadneDB includes 11
-resources that span a diverse set of biological domains and applications.
+is a standard format for relational data. Currently, ariadneDB includes
+`r nrow(cat_df)` resources that span a diverse set of biological domains and
+applications.
 
-| **Resource** | **Description** | **Usage** | **Reference** |
-|--------------|-----------------|-----------|---------------|
-| [BugSigDB](https://bugsigdb.org) | Literature-based association of signature taxa by phenotype | Link taxa to associated phenotypes | @geistlinger2024bugsigdb |
-| [ChocoPhlAn](https://huttenhower.sph.harvard.edu/humann) | Pangenome database resulting from the ChocoPhlAn pipeline | Link UniRef gene families to functional information | @franzosa2018species |
-| [Gut Modules (GM)](https://raeslab.org/software/) | Legacy versions of gut metabolic modules and gut brain modules | Link KOs to gut modules | @vieira2016species; @valles2019neuroactive |
-| [Gene Ontology (GO)](https://www.geneontology.org/) | | | @ashburner2000gene |
-| [KEGG](https://www.genome.jp/kegg/) | Metabolic pathway database | Link ko and ec to reactions, pathways and organisms | @kanehisa2000kegg |
-| [MSigDB](https://www.gsea-msigdb.org/gsea/msigdb) | | | @subramanian2005gene |
-| [Open Tree of Life (OTT)](https://opentreeoflife.github.io/) | Synthetic tree of life constructed by combining public phylogenetic trees and taxonomic data | Link different taxonomies and taxon names | @subramanian2005gene |
-| [Rhea](https://www.rhea-db.org/) | The reactome database | Link rhea reactions to chebi compounds and external pathways | @bansal2022rhea |
-| [TIGRFAMs](https://www.ncbi.nlm.nih.gov/refseq/annotation_prok/tigrfams/) |  | Link TIGRFAMs to GO | @haft2001tigrfams |
-| [UniProt](https://www.uniprot.org/) | The proteome database | Link UniRef gene families to uniprotkb proteins, NCBI taxa and other external identifiers | @bateman2025uniprot |
-| [Web of Life (WoL)](https://www.web-of-life.es/) | Biological network database | Link UniRef gene families to functional and taxonomic information | @zhu2019phylogenomics |
+```{r restbl, echo = FALSE, message = FALSE}
+library(dplyr)
+
+# Define only the vignette-specific metadata & citation keys
+annotations <- list(
+    BugSigDB = c(
+        full = "Bug Signatures Database",
+        desc = "Literature-based association of signature taxa by phenotype",
+        use = "Link taxa to associated phenotypes",
+        reference = "@geistlinger2024bugsigdb"
+    ),
+    ChocoPhlAn = c(
+        full = "ChocoPhlAn",
+        desc = "Pangenome database resulting from the ChocoPhlAn pipeline",
+        use = "Link UniRef gene families to functional information",
+        reference = "@franzosa2018species"
+    ),
+    enviPath = c(
+        full = "enviPath",
+        desc = "Environmental contaminant biotransformation pathway database",
+        use = "Link compounds and reactions to biotransformation pathways",
+        reference = "@hafner2024envipath"
+    ),
+    GM = c(
+        full = "Gut Modules",
+        desc = "Legacy versions of gut metabolic modules and gut brain modules",
+        use = "Link KOs to gut modules",
+        reference = "@vieira2016species; @valles2019neuroactive"
+    ),
+    GO = c(
+        full = "Gene Ontology",
+        desc = "Controlled vocabulary of gene and gene product attributes",
+        use = "Link genes and proteins to biological processes, functions, and components",
+        reference = "@ashburner2000gene"
+    ),
+    KEGG = c(
+        full = "Kyoto Encyclopedia of Genes and Genomes",
+        desc = "Metabolic pathway database",
+        use = "Link ko and ec to reactions, pathways and organisms",
+        reference = "@kanehisa2000kegg"
+    ),
+    MSigDB = c(
+        full = "Molecular Signatures Database",
+        desc = "Molecular Signatures Database of annotated gene sets",
+        use = "Link genes to functional pathways and biological states",
+        reference = "@subramanian2005gene"
+    ),
+    OTT = c(
+        full = "Open Tree of Life",
+        desc = "Synthetic tree of life constructed by combining public phylogenetic trees and taxonomic data",
+        use = "Link different taxonomies and taxon names",
+        reference = "@hinchliff2015synthesis"
+    ),
+    Rhea = c(
+        full = "Rhea",
+        desc = "The reactome database",
+        use = "Link rhea reactions to chebi compounds and external pathways",
+        reference = "@bansal2022rhea"
+    ),
+    TIGRFAMs = c(
+        full = "TIGRFAMs",
+        desc = "Protein family definitions for functional annotation",
+        use = "Link TIGRFAMs to GO",
+        reference = "@haft2001tigrfams"
+    ),
+    UniProt = c(
+        full = "UniProt",
+        desc = "The proteome database",
+        use = "Link UniRef gene families to uniprotkb proteins, NCBI taxa and other identifiers",
+        reference = "@bateman2025uniprot"
+    ),
+    WoL = c(
+        full = "Web of Life",
+        desc = "Biological network database",
+        use = "Link UniRef gene families to functional and taxonomic information",
+        reference = "@zhu2019phylogenomics"
+    )
+)
+
+ann_df <- bind_rows(annotations, .id = "resource")
+
+# Merge, build markdown strings and select final columns
+tbl <- cat_df |>
+    left_join(ann_df, by = "resource") |>
+    mutate(
+        Resource = sprintf(
+            '<a href="%s" target="_blank" rel="noopener">%s</a>', url, resource
+        ),
+        License = coalesce(license, "—")
+    ) |>
+    select(
+        Resource,
+        Description = desc,
+        Usage = use,
+        License,
+        Reference = reference
+    )
+```
+
+```{r echo = FALSE, results = 'asis'}
+# Build a mapping table so each row has a unique placeholder ID
+cite_df <- tbl |>
+    mutate(
+        .row_idx = row_number(),
+        .span_id = sprintf("cite-src-%d", .row_idx),
+        .cite_md = Reference,
+        Citation = sprintf(
+            '<span class="cite-slot" data-target-row="%d"></span>',
+            .row_idx - 1L
+        )
+    ) |>
+    select(Resource, Citation, .cite_md, .span_id)
+
+# Emit raw @citations so Pandoc's citeproc renders them in-place
+cat('<div id="pandoc-cite-staging" style="display:none;">\n')
+
+for (i in seq_len(nrow(cite_df))) {
+    cat(sprintf(
+        '<span id="%s">%s</span>\n', cite_df$.span_id[i], cite_df$.cite_md[i]
+    ))
+}
+
+cat('\n</div>\n')
+```
+
+```{r echo = FALSE, message = FALSE}
+library(DT)
+library(htmlwidgets)
+library(jsonlite)
+
+datatable(
+    tbl,
+    escape = FALSE,
+    options = list(drawCallback = JS(sprintf("
+        function(settings) {
+            var api = this.api();
+            var map = %s;
+            api.rows({page: 'current'}).nodes().each(function(rowNode, idx) {
+                var rowIdx = api.row(rowNode).index();
+                var srcId = map[rowIdx];
+                var renderedHtml = $('#' + srcId).html();
+                if (renderedHtml) {
+                    $('td', rowNode).eq(5).html(renderedHtml);
+                }
+           });
+        }
+    ", toJSON(cite_df$.span_id, auto_unbox = TRUE))))
+)
+```
 
 # Tutorial
 

@@ -38,6 +38,7 @@ Suggests:
     DT,
     enviPathR,
     ggplot2,
+    htmlwidgets,
     igraph,
     KEGGREST,
     knitr,
