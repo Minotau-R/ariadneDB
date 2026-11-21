@@ -69,8 +69,8 @@ record_id <- "18788725"
 
 # Retrieve file names from record
 fetch_zenodo_resource(record_id)
-#>  [1] "ChocoPhlAn.gml" "BugSigDB.gml"   "UniProt.gml"    "WoL.gml"       
-#>  [5] "Rhea.gml"       "KEGG.gml"       "TIGRFAMs.gml"   "GO.gml"        
+#>  [1] "ChocoPhlAn.gml" "BugSigDB.gml"   "UniProt.gml"    "Rhea.gml"      
+#>  [5] "WoL.gml"        "KEGG.gml"       "TIGRFAMs.gml"   "GO.gml"        
 #>  [9] "enviPath.gml"   "OTT.gml"        "GM.gml"         "MSigDB.gml"    
 #> [13] "metadata.csv"  
 
