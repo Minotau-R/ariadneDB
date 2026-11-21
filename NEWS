@@ -1,3 +1,6 @@
+Changes in version 0.3.x
+* Aligned to Rhea breaking release 141
+
 Changes in version 0.2.x
 * Simplified resource url construction
 
