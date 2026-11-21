@@ -44,7 +44,7 @@ meta <- fread(meta_file)
 
 meta$resource <-  str_split_i(meta$Title, "\\s+", 2L)
 
-meta <- meta[ , c("resource", "WebUrl", "License")]
+meta <- meta[ , c("resource", "FullName", "WebUrl", "License")]
 
 meta <- meta[!duplicated(meta), ]
 ```
@@ -70,75 +70,51 @@ library(dplyr)
 # Define only the vignette-specific metadata & citation keys
 annotations <- list(
     BugSigDB = c(
-        full = "Bug Signatures Database",
         desc = "Literature-based association of signature taxa by phenotype",
-        use = "Link taxa to associated phenotypes",
         reference = "@geistlinger2024bugsigdb"
     ),
     ChocoPhlAn = c(
-        full = NA,
         desc = "Pangenome database resulting from the ChocoPhlAn pipeline",
-        use = "Link UniRef gene families to functional information",
         reference = "@franzosa2018species"
     ),
     enviPath = c(
-        full = NA,
         desc = "Environmental contaminant biotransformation pathway database",
-        use = "Link compounds and reactions to biotransformation pathways",
         reference = "@hafner2024envipath"
     ),
     GM = c(
-        full = "Gut Modules",
         desc = "Legacy versions of gut metabolic modules and gut brain modules",
-        use = "Link KOs to gut modules",
         reference = "@vieira2016species; @valles2019neuroactive"
     ),
     GO = c(
-        full = "Gene Ontology",
         desc = "Controlled vocabulary of gene and gene product attributes",
-        use = "Link genes and proteins to biological processes, functions, and components",
         reference = "@ashburner2000gene"
     ),
     KEGG = c(
-        full = "Kyoto Encyclopedia of Genes and Genomes",
-        desc = "Metabolic pathway database",
-        use = "Link ko and ec to reactions, pathways and organisms",
+        desc = "Metabolic pathway database linking ko and ec to reactions, pathways and organisms",
         reference = "@kanehisa2000kegg"
     ),
     MSigDB = c(
-        full = "Molecular Signatures Database",
         desc = "Molecular Signatures Database of annotated gene sets",
-        use = "Link genes to functional pathways and biological states",
         reference = "@subramanian2005gene"
     ),
     OTT = c(
-        full = "Open Tree of Life",
         desc = "Synthetic tree of life constructed by combining public phylogenetic trees and taxonomic data",
-        use = "Link different taxonomies and taxon names",
         reference = "@hinchliff2015synthesis"
     ),
     Rhea = c(
-        full = NA,
         desc = "The reactome database",
-        use = "Link rhea reactions to chebi compounds and external pathways",
         reference = "@bansal2022rhea"
     ),
     TIGRFAMs = c(
-        full = NA,
         desc = "Protein family definitions for functional annotation",
-        use = "Link TIGRFAMs to GO",
         reference = "@haft2001tigrfams"
     ),
     UniProt = c(
-        full = NA,
         desc = "The proteome database",
-        use = "Link UniRef gene families to uniprotkb proteins, NCBI taxa and other identifiers",
         reference = "@bateman2025uniprot"
     ),
     WoL = c(
-        full = "Web of Life",
         desc = "Biological network database",
-        use = "Link UniRef gene families to functional and taxonomic information",
         reference = "@zhu2019phylogenomics"
     )
 )
@@ -150,7 +126,7 @@ tbl <- meta |>
     left_join(ann_df, by = "resource") |>
     mutate(
         Title = ifelse(
-            is.na(full), resource, sprintf("%s (%s)", full, resource)
+            is.na(FullName), resource, sprintf("%s (%s)", FullName, resource)
         ),
         Resource = sprintf(
             '<a href="%s" target="_blank" rel="noopener">%s</a>',
@@ -161,7 +137,6 @@ tbl <- meta |>
     select(
         Resource,
         Description = desc,
-        Usage = use,
         License,
         Reference = reference
     )
@@ -210,7 +185,7 @@ datatable(
                 var srcId = map[rowIdx];
                 var renderedHtml = $('#' + srcId).html();
                 if (renderedHtml) {
-                    $('td', rowNode).eq(5).html(renderedHtml);
+                    $('td', rowNode).eq(4).html(renderedHtml);
                 }
            });
         }
